@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>imagenes/barco protagonista.png</file>
+        <file>imagenes/barco enemigo.png</file>
+        <file>imagenes/Barco jefe.png</file>
+        <file>imagenes/barquito enemigo.png</file>
     </qresource>
 </RCC>

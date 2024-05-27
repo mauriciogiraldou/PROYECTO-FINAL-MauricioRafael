@@ -11,6 +11,8 @@ CONFIG += c++17
 SOURCES += \
     barco.cpp \
     barquito.cpp \
+    barquitoenemigo.cpp \
+    disp.cpp \
     escena.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -19,6 +21,8 @@ SOURCES += \
 HEADERS += \
     barco.h \
     barquito.h \
+    barquitoenemigo.h \
+    disp.h \
     escena.h \
     mainwindow.h \
     projectile.h
