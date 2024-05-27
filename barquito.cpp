@@ -28,5 +28,11 @@ void Barquito::keyPressEvent(QKeyEvent *event){
         setPos(x(),y()+velocidad);
 
     }
+    else if(event->key()==Qt::Key_Space){
+        Disp *bullet=new Disp();
+        bullet->setPos(x()+130,y()+130);
+        scene()->addItem(bullet);
+
+    }
 }
 

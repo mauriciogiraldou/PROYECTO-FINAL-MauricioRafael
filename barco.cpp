@@ -1,3 +1,5 @@
 #include "barco.h"
 
-Barco::Barco() {}
+Barco::Barco() {
+
+}

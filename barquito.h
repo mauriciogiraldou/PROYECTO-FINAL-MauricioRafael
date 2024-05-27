@@ -1,9 +1,10 @@
 #ifndef BARQUITO_H
 #define BARQUITO_H
-#include <QGraphicsPixmapItem>
 #include <QKeyEvent>
 #include <QDebug>
-#include <barco.h>
+#include "barco.h"
+#include "disp.h"
+#include <QGraphicsScene>
 class Barquito:public QGraphicsPixmapItem,public Barco
 {
 public:

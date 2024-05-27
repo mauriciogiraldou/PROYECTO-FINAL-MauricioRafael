@@ -1,6 +1,6 @@
 #ifndef BARCO_H
 #define BARCO_H
-
+#include <QGraphicsPixmapItem>
 class Barco
 {
 public:
