@@ -6,7 +6,8 @@
 #include <QGraphicsView>
 #include <QDebug>
 #include <QGraphicsSceneMouseEvent>
-#include <escena.h>
+#include "escena.h"
+#include "barquito.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -24,5 +25,6 @@ public:
 private:
     Ui::MainWindow *ui;
     Escena *scene;
+    Barquito *barco;
 };
 #endif // MAINWINDOW_H
