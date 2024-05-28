@@ -1,6 +1,8 @@
 #include "barquitoenemigo.h"
+#include "barquito.h"  // Incluir aquí, no en el encabezado
 
-Barquitoenemigo::Barquitoenemigo(QGraphicsItem *parent) : QGraphicsPixmapItem(parent)
+Barquitoenemigo::Barquitoenemigo(QGraphicsItem *parent)
+    : QGraphicsPixmapItem(parent), velocidad(5), aceleracion(0.5), tiempoTotal(0)
 {
     QPixmap pixmap(":/imagenes/barquito enemigo.png");
     setPixmap(pixmap);
@@ -16,10 +18,34 @@ Barquitoenemigo::Barquitoenemigo(QGraphicsItem *parent) : QGraphicsPixmapItem(pa
 
 void Barquitoenemigo::move()
 {
-    setPos(x() - velocidad, y());
+    tiempoTotal += moveTimer->interval() / 1000.0; // Convertir milisegundos a segundos
+
+    // Calcular la nueva posición usando la fórmula del movimiento rectilíneo uniformemente acelerado
+    double nueva_x = x() - (velocidad * tiempoTotal + 0.5 * aceleracion * tiempoTotal * tiempoTotal);
+
+    // Actualizar la posición del enemigo
+    setPos(nueva_x, y());
+
+    // Chequear colisiones con el barquito
+    checkCollisions();
+
     if (pos().x() < 0) {
         scene()->removeItem(this);
         delete this;
         qDebug() << "Se elimina el barquito enemigo";
+    }
+}
+
+void Barquitoenemigo::checkCollisions()
+{
+    QList<QGraphicsItem *> collidingItems = scene()->collidingItems(this);
+    for (QGraphicsItem *item : collidingItems) {
+        Barquito *barquito = dynamic_cast<Barquito *>(item);
+        if (barquito) {
+            barquito->reducirVidas();
+            scene()->removeItem(this);
+            delete this;
+            return;
+        }
     }
 }
