@@ -1,5 +1,6 @@
 #include "disp.h"
 #include <QDebug>
+#include "barquitoenemigo.h"
 Disp::Disp() {
     setRect(0, 0, 15, 15);
     setBrush(Qt::gray);
@@ -21,7 +22,6 @@ Disp::Disp() {
     t = 0.5; // Intervalo de tiempo (ajusta según la velocidad del juego)
     tiempoTotal = 0; // Tiempo total transcurrido
 }
-
 void Disp::move() {
     // Incrementar el tiempo total
     tiempoTotal += t;

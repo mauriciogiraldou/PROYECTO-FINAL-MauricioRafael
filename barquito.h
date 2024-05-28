@@ -2,16 +2,19 @@
 #define BARQUITO_H
 #include <QKeyEvent>
 #include <QDebug>
-#include "barco.h"
 #include "disp.h"
 #include <QGraphicsScene>
-class Barquito:public QGraphicsPixmapItem,public Barco
+#include <QObject>
+class Barquito:public QObject,public QGraphicsPixmapItem
 {
+Q_OBJECT
 public:
     Barquito(QGraphicsItem *parent =nullptr);
     void keyPressEvent(QKeyEvent *event);
+    void reducirVidas();
 private:
     int velocidad=10;
+    int vidas=3;
 
 };
 

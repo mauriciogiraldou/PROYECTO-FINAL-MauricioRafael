@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
 QList<Barquitoenemigo*> barquitosEnemigos;
 
 MainWindow::MainWindow(QWidget *parent)

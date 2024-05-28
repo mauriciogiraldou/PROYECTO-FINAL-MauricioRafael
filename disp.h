@@ -7,10 +7,7 @@
 #include <cmath>
 #include <QBrush>
 #include <QGraphicsScene>
-#include "barquitoenemigo.h"
 #include <QList>
-
-
 class Disp : public QObject,public QGraphicsEllipseItem{
     Q_OBJECT
 public:
