@@ -12,6 +12,7 @@
 #include <QTimer>
 #include "puntaje.h"
 #include "vidas.h"
+#include "gamecontroller.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
