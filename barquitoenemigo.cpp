@@ -9,7 +9,6 @@ Barquitoenemigo::Barquitoenemigo(QGraphicsItem *parent)
     setScale(0.40);
     int random_number = rand() % 600;
     setPos(1220, random_number);
-
     // Temporizador para mover el enemigo
     moveTimer = new QTimer(this);
     connect(moveTimer, &QTimer::timeout, this, &Barquitoenemigo::move);

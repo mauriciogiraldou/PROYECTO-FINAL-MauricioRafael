@@ -12,8 +12,11 @@ void GameController::start() {
 
 void GameController::spawnEnemy() {
     if (puntaje->hasReached(50)) {
-        spawnTimer->stop();
-        qDebug() << "Puntaje de 50 alcanzado, se detiene la aparición de enemigos.";
+        //spawnTimer->stop();
+        //qDebug() << "Puntaje de 50 alcanzado, se detiene la aparición de enemigos.";
+        Barcoenemigo *enemy2=new Barcoenemigo();
+        scene->addItem(enemy2);
+        qDebug() << "Puntaje de 50 alcanzado, aparecen nuevos enemigos enemigos.";
         return;
     }
 

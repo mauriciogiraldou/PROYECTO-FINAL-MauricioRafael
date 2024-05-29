@@ -1,10 +1,13 @@
 #ifndef BARCOENEMIGO_H
 #define BARCOENEMIGO_H
-
-class Barcoenemigo
+#include <QGraphicsPixmapItem>
+#include <QObject>
+#include <QTimer>
+#include <QGraphicsScene>
+class Barcoenemigo:public QGraphicsPixmapItem
 {
 public:
-    Barcoenemigo();
+    Barcoenemigo(QGraphicsItem *parent=nullptr);
 };
 
 #endif // BARCOENEMIGO_H

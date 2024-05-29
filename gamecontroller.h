@@ -6,6 +6,7 @@
 #include <QTimer>
 #include "puntaje.h"
 #include "barquitoenemigo.h"
+#include "barcoenemigo.h"
 
 class GameController : public QObject {
     Q_OBJECT
