@@ -8,10 +8,11 @@
 #include <QBrush>
 #include <QGraphicsScene>
 #include <QList>
+#include <puntaje.h>
 class Disp : public QObject,public QGraphicsEllipseItem{
     Q_OBJECT
 public:
-    Disp();
+    Disp(Puntaje *puntaje);
 public slots:
     void move();
 
@@ -24,7 +25,8 @@ private:
     double g;            // Aceleración debida a la gravedad
     double t;            // Intervalo de tiempo
     double tiempoTotal;  // Tiempo total transcurrido
-    QTimer *timer;       // Temporizador para el movimiento
+    QTimer *timer;
+    Puntaje *puntajeDisplay;        // Temporizador para el movimiento
 };
 
 #endif // DISP_H

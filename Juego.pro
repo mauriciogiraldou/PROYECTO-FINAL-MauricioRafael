@@ -16,7 +16,9 @@ SOURCES += \
     escena.cpp \
     main.cpp \
     mainwindow.cpp \
-    projectile.cpp
+    projectile.cpp \
+    puntaje.cpp \
+    vidas.cpp
 
 HEADERS += \
     barco.h \
@@ -25,7 +27,9 @@ HEADERS += \
     disp.h \
     escena.h \
     mainwindow.h \
-    projectile.h
+    projectile.h \
+    puntaje.h \
+    vidas.h
 
 FORMS += \
     mainwindow.ui

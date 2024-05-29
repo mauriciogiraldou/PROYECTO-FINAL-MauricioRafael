@@ -1,5 +1,4 @@
 #include "barquito.h"
-
 Barquito::Barquito(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
 {
     QPixmap pixmap(":/imagenes/barco protagonista.png");
@@ -29,20 +28,26 @@ void Barquito::keyPressEvent(QKeyEvent *event){
 
     }
     else if(event->key()==Qt::Key_Space){
-        Disp *bullet=new Disp();
+        Disp *bullet=new Disp(puntajeDisplay);
         bullet->setPos(x()+130,y()+130);
         scene()->addItem(bullet);
 
     }
 }
-void Barquito::reducirVidas()
-{
+void Barquito::reducirVidas() {
     vidas--;
     qDebug() << "Vidas restantes: " << vidas;
+    if (vidasDisplay) {
+        vidasDisplay->decrementar();
+    }
     if (vidas <= 0) {
-        // Manejar el fin del juego o la eliminación del barquito
         qDebug() << "Game Over!";
         scene()->removeItem(this);
         delete this;
+    }
+}
+void Barquito::incrementarPuntaje(int puntos) {
+    if (puntajeDisplay) {
+        puntajeDisplay->incrementar(puntos);
     }
 }
