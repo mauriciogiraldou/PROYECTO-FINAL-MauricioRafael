@@ -21,7 +21,14 @@ MainWindow::MainWindow(QWidget *parent)
     // Crear el primer enemigo
     Barquitoenemigo *barquitoenemigo = new Barquitoenemigo;
     scene->addItem(barquitoenemigo);
-
+    Puntaje *puntajeDisplay = new Puntaje();
+    scene->addItem(puntajeDisplay);
+    barco->setPuntaje(puntajeDisplay);
+    Vidas *vidasDisplay=new Vidas(3);
+    puntajeDisplay->setPos(640,3);
+    scene->addItem(vidasDisplay);
+    barco->setVidas(vidasDisplay);
+    vidasDisplay->setPos(10,3);
     // Configurar el temporizador para crear nuevos enemigos
     spawnTimer = new QTimer(this);
     connect(spawnTimer, &QTimer::timeout, this, [this]() {

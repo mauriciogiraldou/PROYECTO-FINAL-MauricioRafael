@@ -10,6 +10,8 @@
 #include "barquito.h"
 #include "barquitoenemigo.h"
 #include <QTimer>
+#include "puntaje.h"
+#include "vidas.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;

@@ -1,7 +1,7 @@
 #include "disp.h"
 #include <QDebug>
 #include "barquitoenemigo.h"
-Disp::Disp() {
+Disp::Disp(Puntaje *puntaje):puntajeDisplay(puntaje) {
     setRect(0, 0, 15, 15);
     setBrush(Qt::gray);
     QTimer *timer = new QTimer(this); // Asociar el temporizador a la instancia actual
@@ -43,6 +43,7 @@ void Disp::move() {
             // delete them both
             delete colliding_items[i];
             delete this;
+            puntajeDisplay->incrementar(5);
             return;
         }
     }
