@@ -30,12 +30,15 @@ MainWindow::MainWindow(QWidget *parent)
     barco->setVidas(vidasDisplay);
     vidasDisplay->setPos(10,3);
     // Configurar el temporizador para crear nuevos enemigos
-    spawnTimer = new QTimer(this);
+   /* spawnTimer = new QTimer(this);
     connect(spawnTimer, &QTimer::timeout, this, [this]() {
         Barquitoenemigo *enemigoChico = new Barquitoenemigo();
         scene->addItem(enemigoChico);
     });
     spawnTimer->start(2000);
+    */
+    GameController *gameController = new GameController(scene, puntajeDisplay);
+    gameController->start();
 }
 
 MainWindow::~MainWindow()

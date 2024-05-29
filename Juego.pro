@@ -10,10 +10,12 @@ CONFIG += c++17
 
 SOURCES += \
     barco.cpp \
+    barcoenemigo.cpp \
     barquito.cpp \
     barquitoenemigo.cpp \
     disp.cpp \
     escena.cpp \
+    gamecontroller.cpp \
     main.cpp \
     mainwindow.cpp \
     projectile.cpp \
@@ -22,10 +24,12 @@ SOURCES += \
 
 HEADERS += \
     barco.h \
+    barcoenemigo.h \
     barquito.h \
     barquitoenemigo.h \
     disp.h \
     escena.h \
+    gamecontroller.h \
     mainwindow.h \
     projectile.h \
     puntaje.h \
