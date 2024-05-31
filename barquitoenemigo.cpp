@@ -2,7 +2,7 @@
 #include "barquito.h"  // Incluir aquí, no en el encabezado
 
 Barquitoenemigo::Barquitoenemigo(QGraphicsItem *parent)
-    : QGraphicsPixmapItem(parent), velocidad(5), aceleracion(0.5), tiempoTotal(0)
+    : QGraphicsPixmapItem(parent), velocidad(6), aceleracion(0.6), tiempoTotal(0)
 {
     QPixmap pixmap(":/imagenes/barquito enemigo.png");
     setPixmap(pixmap);

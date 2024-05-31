@@ -19,6 +19,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     projectile.cpp \
+    proyectilenemigo.cpp \
     puntaje.cpp \
     vidas.cpp
 
@@ -32,6 +33,7 @@ HEADERS += \
     gamecontroller.h \
     mainwindow.h \
     projectile.h \
+    proyectilenemigo.h \
     puntaje.h \
     vidas.h
 

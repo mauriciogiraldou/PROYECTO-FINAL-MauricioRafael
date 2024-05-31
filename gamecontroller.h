@@ -5,8 +5,7 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include "puntaje.h"
-#include "barquitoenemigo.h"
-#include "barcoenemigo.h"
+
 
 class GameController : public QObject {
     Q_OBJECT
@@ -15,13 +14,17 @@ public:
     void start();
 
 public slots:
-    void spawnEnemy();
+    void spawnSmallEnemy();
+    void spawnLargeEnemy();
+    void checkPuntaje();
 
 private:
     QGraphicsScene *scene;
     Puntaje *puntaje;
-    QTimer *spawnTimer;
+    QTimer *smallEnemyTimer;
+    QTimer *largeEnemyTimer;
     bool gameOver;
+
 };
 
 #endif // GAMECONTROLLER_H

@@ -4,10 +4,17 @@
 #include <QObject>
 #include <QTimer>
 #include <QGraphicsScene>
-class Barcoenemigo:public QGraphicsPixmapItem
+#include <QObject>
+
+class Barcoenemigo:public QObject,public QGraphicsPixmapItem
 {
 public:
     Barcoenemigo(QGraphicsItem *parent=nullptr);
+    void recibirDisparo();
+public slots:
+    void shoot();
+private:
+    int vida;
 };
 
 #endif // BARCOENEMIGO_H

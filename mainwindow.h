@@ -13,6 +13,8 @@
 #include "puntaje.h"
 #include "vidas.h"
 #include "gamecontroller.h"
+#include "proyectilenemigo.h"
+#include "barcoenemigo.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
