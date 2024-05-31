@@ -29,8 +29,6 @@ MainWindow::MainWindow(QWidget *parent)
     scene->addItem(vidasDisplay);
     barco->setVidas(vidasDisplay);
     vidasDisplay->setPos(10,3);
-    JefeFinal *jefefinal=new JefeFinal;
-    scene->addItem(jefefinal);
     // Configurar el temporizador para crear nuevos enemigos
    /* spawnTimer = new QTimer(this);
     connect(spawnTimer, &QTimer::timeout, this, [this]() {
@@ -39,8 +37,9 @@ MainWindow::MainWindow(QWidget *parent)
     });
     spawnTimer->start(2000);
     */
-    GameController *gameController = new GameController(scene, puntajeDisplay);
-    gameController->start();
+
+    GameController *controller = new GameController(scene, puntajeDisplay);
+    controller->start();
 }
 
 MainWindow::~MainWindow()
