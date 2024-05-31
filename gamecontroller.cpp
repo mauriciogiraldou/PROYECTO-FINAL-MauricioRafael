@@ -2,6 +2,7 @@
 #include "barquitoenemigo.h"
 #include "barcoenemigo.h"
 #include "jefefinal.h"
+#include "bola.h"
 #include <QDebug>
 
 GameController::GameController(QGraphicsScene *scene, Puntaje *puntaje, QObject *parent)
@@ -9,10 +10,12 @@ GameController::GameController(QGraphicsScene *scene, Puntaje *puntaje, QObject 
     smallEnemyTimer = new QTimer(this);
     largeEnemyTimer = new QTimer(this);
     puntajeCheckTimer = new QTimer(this); // Timer para verificar el puntaje
+    bolaTimer = new QTimer(this);
 
     connect(smallEnemyTimer, &QTimer::timeout, this, &GameController::spawnSmallEnemy);
     connect(largeEnemyTimer, &QTimer::timeout, this, &GameController::spawnLargeEnemy);
     connect(puntajeCheckTimer, &QTimer::timeout, this, &GameController::checkPuntaje); // Conectar el timer para verificar el puntaje
+    connect(bolaTimer, &QTimer::timeout, this, &GameController::spawnBola);
 }
 
 void GameController::start() {
@@ -66,7 +69,16 @@ void GameController::checkPuntaje() {
         // Generar el jefe final
         JefeFinal *boss = new JefeFinal();
         scene->addItem(boss);
+
+        // Iniciar la caída de bolas
+        bolaTimer->start(4000); // Ajusta el intervalo de tiempo según sea necesario para las bolas
+
         jefeFinalSpawned = true;
         qDebug() << "Puntaje de 400 alcanzado, aparece el jefe final.";
     }
+}
+
+void GameController::spawnBola() {
+    Bola *bola = new Bola();
+    scene->addItem(bola);
 }

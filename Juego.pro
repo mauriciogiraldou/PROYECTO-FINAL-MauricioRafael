@@ -13,6 +13,7 @@ SOURCES += \
     barcoenemigo.cpp \
     barquito.cpp \
     barquitoenemigo.cpp \
+    bola.cpp \
     disp.cpp \
     escena.cpp \
     gamecontroller.cpp \
@@ -30,6 +31,7 @@ HEADERS += \
     barcoenemigo.h \
     barquito.h \
     barquitoenemigo.h \
+    bola.h \
     disp.h \
     escena.h \
     gamecontroller.h \
