@@ -15,7 +15,7 @@ void Barquito::keyPressEvent(QKeyEvent *event){
     }
     else if(event->key()==Qt::Key_D){
         if(x()<1080)
-        setPos(x()+10,y());
+        setPos(x()+velocidad,y());
     }
     else if(event->key()==Qt::Key_W){
         if(y()>-10)

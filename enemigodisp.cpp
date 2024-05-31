@@ -1,11 +1,11 @@
-#include "disp.h"
-#include <QDebug>
-#include "barquitoenemigo.h"
-#include "barcoenemigo.h"
-Disp::Disp(Puntaje *puntaje):puntajeDisplay(puntaje) {
+#include "enemigodisp.h"
+#include "barquito.h"
+
+EnemigoDisp::EnemigoDisp(QGraphicsItem *parent)
+    : QObject(), QGraphicsRectItem(parent) {
     setRect(0, 0, 15, 15);
-    setBrush(Qt::gray);
-    QTimer *timer = new QTimer(this); // Asociar el temporizador a la instancia actual
+    setBrush(Qt::red);
+    timer = new QTimer(this); // Asociar el temporizador a la instancia actual
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
     timer->start(80);
     velocidad = 65; // Velocidad inicial (magnitud)
@@ -24,7 +24,7 @@ Disp::Disp(Puntaje *puntaje):puntajeDisplay(puntaje) {
     tiempoTotal = 0; // Tiempo total transcurrido
 }
 
-void Disp::move() {
+void EnemigoDisp::move() {
     // Incrementar el tiempo total
     tiempoTotal += t;
 
@@ -35,39 +35,30 @@ void Disp::move() {
     // Actualizar la posición del proyectil
     setPos(nueva_x, nueva_y);
 
-    // Verificar colisiones
+    // Detener el movimiento cuando el proyectil toque el suelo (y <= 0)
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i) {
-        if (typeid(*(colliding_items[i])) == typeid(Barquitoenemigo)) {
-            // Remover ambos elementos de la escena
+        if (typeid(*(colliding_items[i])) == typeid(Barquito)) {
+            // Remove both items
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
-
-            // Eliminar ambos elementos
+            // Delete both items
             delete colliding_items[i];
-            delete this;
-
-            // Incrementar puntaje si es un Barquitoenemigo
-            puntajeDisplay->incrementar(5);
-            return;
-        } else if (typeid(*(colliding_items[i])) == typeid(Barcoenemigo)) {
-            // Disminuir la vida del Barcoenemigo
-            Barcoenemigo *enemy = dynamic_cast<Barcoenemigo *>(colliding_items[i]);
-            if (enemy) {
-                enemy->recibirDisparo();
-            }
-
-            // Remover el proyectil
-            scene()->removeItem(this);
             delete this;
             return;
         }
     }
-
-    // Eliminar el proyectil si sale de la pantalla
-    if (pos().y() > 800 || pos().x() < 0 || pos().x() > 1400) {
+    if (pos().y() > 800) {
         scene()->removeItem(this);
         delete this;
-        qDebug() << "se elimina la balurda";
+        qDebug() << "Se elimina la bala";
+    } else if (pos().x() < 0) {
+        scene()->removeItem(this);
+        delete this;
+        qDebug() << "Se elimina la bala";
+    } else if (pos().x() > 1400) {
+        scene()->removeItem(this);
+        delete this;
+        qDebug() << "Se elimina la bala";
     }
 }
