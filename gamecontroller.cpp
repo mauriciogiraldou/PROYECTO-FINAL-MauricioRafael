@@ -18,7 +18,7 @@ void GameController::start() {
 }
 
 void GameController::spawnSmallEnemy() {
-    if (puntaje->hasReached(95) && !puntaje->hasReached(200)) {
+    if (puntaje->hasReached(95) && puntaje->getPuntaje() < 200) {
         smallEnemyTimer->stop();
         qDebug() << "Puntaje de 95 alcanzado, se detiene la aparición de enemigos pequeños.";
         return;
@@ -29,24 +29,26 @@ void GameController::spawnSmallEnemy() {
 }
 
 void GameController::spawnLargeEnemy() {
-    if (puntaje->hasReached(5) && puntaje->hasReached(95) && puntaje->hasReached(200)) {
-        Barcoenemigo *enemy2 = new Barcoenemigo();
-        scene->addItem(enemy2);
+    if (puntaje->hasReached(200)) {
+        // Agregar tanto grandes como pequeños enemigos
+        Barcoenemigo *largeEnemy = new Barcoenemigo();
+        scene->addItem(largeEnemy);
+        Barquitoenemigo *smallEnemy = new Barquitoenemigo();
+        scene->addItem(smallEnemy);
         qDebug() << "Puntaje de 200 alcanzado, aparecen nuevos enemigos grandes y pequeños.";
-        return;
-    } else if (puntaje->hasReached(5) && puntaje->hasReached(95)) {
-        Barcoenemigo *enemy2 = new Barcoenemigo();
-        scene->addItem(enemy2);
+    } else if (puntaje->hasReached(95)) {
+        // Agregar solo grandes enemigos
+        Barcoenemigo *largeEnemy = new Barcoenemigo();
+        scene->addItem(largeEnemy);
         qDebug() << "Puntaje de 95 alcanzado, aparecen solo enemigos grandes.";
-        return;
     }
 }
 
 void GameController::checkPuntaje() {
     if (puntaje->hasReached(200)) {
         if (!smallEnemyTimer->isActive()) {
-            smallEnemyTimer->start(2000); // Reinicia el temporizador de pequeños enemigos
-            qDebug() << "Puntaje de 200 alcanzado, reanuda la aparición de enemigos pequeños.";
+            smallEnemyTimer->start(2000); // Reinicia el temporizador de pequeños enemigos con el mismo intervalo inicial
+            qDebug() << "Puntaje de 200 alcanzado, reanuda la aparición de enemigos pequeños al ritmo inicial.";
         }
     }
 }

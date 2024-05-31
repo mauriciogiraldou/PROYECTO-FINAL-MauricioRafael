@@ -16,6 +16,8 @@ SOURCES += \
     disp.cpp \
     escena.cpp \
     gamecontroller.cpp \
+    jefefinal.cpp \
+    jefeproyectil.cpp \
     main.cpp \
     mainwindow.cpp \
     projectile.cpp \
@@ -31,6 +33,8 @@ HEADERS += \
     disp.h \
     escena.h \
     gamecontroller.h \
+    jefefinal.h \
+    jefeproyectil.h \
     mainwindow.h \
     projectile.h \
     proyectilenemigo.h \

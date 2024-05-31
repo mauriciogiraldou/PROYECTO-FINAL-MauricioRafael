@@ -15,6 +15,7 @@
 #include "gamecontroller.h"
 #include "proyectilenemigo.h"
 #include "barcoenemigo.h"
+#include "jefefinal.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -35,5 +36,6 @@ private:
     Barquito *barco;
     Barquitoenemigo *barquitoenemigo;
     QTimer *spawnTimer;
+    JefeFinal *jefefinal;
 };
 #endif // MAINWINDOW_H
