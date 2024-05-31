@@ -12,19 +12,21 @@ public:
     GameController(QGraphicsScene *scene, Puntaje *puntaje, QObject *parent = nullptr);
     void start();
 
-public slots:
+private slots:
     void spawnSmallEnemy();
     void spawnLargeEnemy();
     void checkPuntaje();
+    void spawnBola(); // Añadir esta función para manejar la caída de bolas
 
 private:
     QGraphicsScene *scene;
     Puntaje *puntaje;
-    bool gameOver;
-    bool jefeFinalSpawned;
     QTimer *smallEnemyTimer;
     QTimer *largeEnemyTimer;
-    QTimer *puntajeCheckTimer;  // Timer para verificar el puntaje regularmente
+    QTimer *puntajeCheckTimer;
+    QTimer *bolaTimer; // Añadir un temporizador para las bolas
+    bool jefeFinalSpawned;
+    bool gameOver;
 };
 
 #endif // GAMECONTROLLER_H

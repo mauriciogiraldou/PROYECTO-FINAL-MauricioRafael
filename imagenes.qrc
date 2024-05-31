@@ -4,5 +4,6 @@
         <file>imagenes/barco enemigo.png</file>
         <file>imagenes/Barco jefe.png</file>
         <file>imagenes/barquito enemigo.png</file>
+        <file>imagenes/abrojo.png</file>
     </qresource>
 </RCC>
