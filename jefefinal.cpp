@@ -4,7 +4,7 @@
 #include <QGraphicsScene>
 #include <QDebug>
 
-JefeFinal::JefeFinal(QGraphicsItem *parent):QGraphicsPixmapItem(parent),direccion(1)
+JefeFinal::JefeFinal(QGraphicsItem *parent):QGraphicsPixmapItem(parent),direccion(1),vida(600)
 {
     QPixmap pixmap(":/imagenes/Barco jefe.png");
     setPixmap(pixmap);
@@ -42,4 +42,17 @@ void JefeFinal::shoot()
     bullet->setPos(x() +15, y() + 240);
     scene()->addItem(bullet);
     qDebug()<<"que pasa chavale";
+}
+void JefeFinal::recibirDisparo() {
+    vida -= 1; // Reducir la vida en 10 (ajusta según sea necesario)
+    qDebug()<<"No me disparen";
+    if (vida <= 0) {
+        // Si la vida es menor o igual a 0, eliminar el jefe final
+        scene()->removeItem(this);
+        delete this;
+        qDebug() << "Jefe final destruido";
+    }
+}
+int JefeFinal::getVida() const {
+    return vida;
 }

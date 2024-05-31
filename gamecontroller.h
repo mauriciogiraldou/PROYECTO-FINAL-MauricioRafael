@@ -6,7 +6,6 @@
 #include <QTimer>
 #include "puntaje.h"
 
-
 class GameController : public QObject {
     Q_OBJECT
 public:
@@ -21,10 +20,11 @@ public slots:
 private:
     QGraphicsScene *scene;
     Puntaje *puntaje;
+    bool gameOver;
+    bool jefeFinalSpawned;
     QTimer *smallEnemyTimer;
     QTimer *largeEnemyTimer;
-    bool gameOver;
-
+    QTimer *puntajeCheckTimer;  // Timer para verificar el puntaje regularmente
 };
 
 #endif // GAMECONTROLLER_H

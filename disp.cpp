@@ -2,7 +2,9 @@
 #include <QDebug>
 #include "barquitoenemigo.h"
 #include "barcoenemigo.h"
-Disp::Disp(Puntaje *puntaje):puntajeDisplay(puntaje) {
+#include "jefefinal.h"
+
+Disp::Disp(Puntaje *puntaje): puntajeDisplay(puntaje) {
     setRect(0, 0, 15, 15);
     setBrush(Qt::gray);
     QTimer *timer = new QTimer(this); // Asociar el temporizador a la instancia actual
@@ -55,6 +57,18 @@ void Disp::move() {
             Barcoenemigo *enemy = dynamic_cast<Barcoenemigo *>(colliding_items[i]);
             if (enemy) {
                 enemy->recibirDisparo();
+                puntajeDisplay->incrementar(1);
+            }
+
+            // Remover el proyectil
+            scene()->removeItem(this);
+            delete this;
+            return;
+        } else if (typeid(*(colliding_items[i])) == typeid(JefeFinal)) {
+            // Disminuir la vida del JefeFinal
+            JefeFinal *boss = dynamic_cast<JefeFinal *>(colliding_items[i]);
+            if (boss) {
+                boss->recibirDisparo();
                 puntajeDisplay->incrementar(1);
             }
 
