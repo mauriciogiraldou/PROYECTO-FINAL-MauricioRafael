@@ -26,6 +26,7 @@ SOURCES += \
     projectile.cpp \
     proyectilenemigo.cpp \
     puntaje.cpp \
+    registro.cpp \
     vidas.cpp
 
 HEADERS += \
@@ -45,10 +46,12 @@ HEADERS += \
     projectile.h \
     proyectilenemigo.h \
     puntaje.h \
+    registro.h \
     vidas.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    registro.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
