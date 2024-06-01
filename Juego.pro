@@ -17,10 +17,12 @@ SOURCES += \
     disp.cpp \
     escena.cpp \
     gamecontroller.cpp \
+    gamecontrollernivel2.cpp \
     jefefinal.cpp \
     jefeproyectil.cpp \
     main.cpp \
     mainwindow.cpp \
+    nivel2.cpp \
     projectile.cpp \
     proyectilenemigo.cpp \
     puntaje.cpp \
@@ -35,9 +37,11 @@ HEADERS += \
     disp.h \
     escena.h \
     gamecontroller.h \
+    gamecontrollernivel2.h \
     jefefinal.h \
     jefeproyectil.h \
     mainwindow.h \
+    nivel2.h \
     projectile.h \
     proyectilenemigo.h \
     puntaje.h \

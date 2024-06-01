@@ -16,6 +16,7 @@
 #include "proyectilenemigo.h"
 #include "barcoenemigo.h"
 #include "jefefinal.h"
+#include "nivel2.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -37,5 +38,7 @@ private:
     Barquitoenemigo *barquitoenemigo;
     QTimer *spawnTimer;
     JefeFinal *jefefinal;
+private slots:
+    void onChangeScene(QGraphicsScene *newScene);
 };
 #endif // MAINWINDOW_H

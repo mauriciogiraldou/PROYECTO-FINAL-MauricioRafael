@@ -8,17 +8,19 @@ class JefeFinal : public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 public:
     JefeFinal(QGraphicsItem *parent = nullptr);
-    void recibirDisparo(); // Función para reducir la vida cuando el jefe recibe un disparo
+    void recibirDisparo();
     int getVida() const;
-    int getMaxVida() const;
-public slots:
+
+signals:
+    void jefeDerrotado();
+
+private slots:
     void move();
     void shoot();
 
 private:
+    int direccion;
     int vida;
-    int maxVida;
-    int direccion; // 1 for down, -1 for up
 };
 
 #endif // JEFEFINAL_H
