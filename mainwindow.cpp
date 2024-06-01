@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-QList<Barquitoenemigo*> barquitosEnemigos;
+#include "gamecontroller.h"
+#include "nivel2.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -18,31 +19,30 @@ MainWindow::MainWindow(QWidget *parent)
     barco->setPos(-10, 200);
     scene->addItem(barco);
 
-    // Crear el primer enemigo
     Barquitoenemigo *barquitoenemigo = new Barquitoenemigo;
     scene->addItem(barquitoenemigo);
+
     Puntaje *puntajeDisplay = new Puntaje();
     scene->addItem(puntajeDisplay);
     barco->setPuntaje(puntajeDisplay);
-    Vidas *vidasDisplay=new Vidas(3);
-    puntajeDisplay->setPos(640,3);
+
+    Vidas *vidasDisplay = new Vidas(3);
+    puntajeDisplay->setPos(640, 3);
     scene->addItem(vidasDisplay);
     barco->setVidas(vidasDisplay);
-    vidasDisplay->setPos(10,3);
-    // Configurar el temporizador para crear nuevos enemigos
-   /* spawnTimer = new QTimer(this);
-    connect(spawnTimer, &QTimer::timeout, this, [this]() {
-        Barquitoenemigo *enemigoChico = new Barquitoenemigo();
-        scene->addItem(enemigoChico);
-    });
-    spawnTimer->start(2000);
-    */
+    vidasDisplay->setPos(10, 3);
 
     GameController *controller = new GameController(scene, puntajeDisplay);
+    connect(controller, &GameController::changeScene, this, &MainWindow::onChangeScene);
     controller->start();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::onChangeScene(QGraphicsScene *newScene) {
+    ui->graphicsView->setScene(newScene);
+    newScene->setSceneRect(0, 0, ui->graphicsView->width(), ui->graphicsView->height());
 }
