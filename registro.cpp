@@ -6,19 +6,21 @@
 #include <QDir>
 #include <QDebug>
 
-registro::registro(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::registro) {
+Registro::Registro(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::registro)
+{
     ui->setupUi(this);
     cargarUsuarios();
 }
 
-registro::~registro() {
+Registro::~Registro()
+{
     guardarUsuarios();
     delete ui;
 }
 
-void registro::registrarUsuario(const QString &nombreUsuario, const QString &contrasena) {
+void Registro::registrarUsuario(const QString &nombreUsuario, const QString &contrasena) {
     if (usuarios.contains(nombreUsuario)) {
         QMessageBox::warning(this, "Registro fallido", "El nombre de usuario ya existe.");
         return;
@@ -28,32 +30,34 @@ void registro::registrarUsuario(const QString &nombreUsuario, const QString &con
     guardarUsuarios();
 }
 
-bool registro::autenticarUsuario(const QString &nombreUsuario, const QString &contrasena) {
+bool Registro::autenticarUsuario(const QString &nombreUsuario, const QString &contrasena) {
     return usuarios.contains(nombreUsuario) && usuarios[nombreUsuario] == contrasena;
 }
 
-void registro::on_registrarButton_clicked() {
+void Registro::on_registrarButton_clicked() {
     QString nombreUsuario = ui->nombreUsuarioEdit->text();
     QString contrasena = ui->contrasenaEdit->text();
     registrarUsuario(nombreUsuario, contrasena);
 }
 
-void registro::on_iniciarSesionButton_clicked() {
+void Registro::on_iniciarSesionButton_clicked() {
     QString nombreUsuario = ui->nombreUsuarioEdit->text();
     QString contrasena = ui->contrasenaEdit->text();
     if (autenticarUsuario(nombreUsuario, contrasena)) {
         emit usuarioAutenticado();
+        accept();
     } else {
         QMessageBox::warning(this, "Autenticación fallida", "Nombre de usuario o contraseña incorrectos.");
     }
 }
 
-void registro::cargarUsuarios() {
-    QString filePath = QDir::homePath() + "/.miJuego/usuarios.txt";
+void Registro::cargarUsuarios() {
+    QString filePath = QCoreApplication::applicationDirPath() + "/../usuarios.txt";
+    qDebug() << "Cargando usuarios desde: " << filePath;
     QFile file(filePath);
 
     if (!file.exists()) {
-        QDir().mkpath(QDir::homePath() + "/.miJuego");
+        qDebug() << "El archivo no existe.";
     }
 
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -73,13 +77,10 @@ void registro::cargarUsuarios() {
     file.close();
 }
 
-void registro::guardarUsuarios() {
-    QString filePath = QDir::homePath() + "/.miJuego/usuarios.txt";
+void Registro::guardarUsuarios() {
+    QString filePath = QCoreApplication::applicationDirPath() + "/../usuarios.txt";
+    qDebug() << "Guardando usuarios en: " << filePath;
     QFile file(filePath);
-
-    if (!file.exists()) {
-        QDir().mkpath(QDir::homePath() + "/.miJuego");
-    }
 
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         qDebug() << "No se pudo abrir el archivo de usuarios.";
