@@ -22,8 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     iniciarJuego();
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow() {
     delete ui;
 }
 
@@ -52,9 +51,17 @@ void MainWindow::iniciarJuego() {
     barco->setVidas(vidasDisplay);
     vidasDisplay->setPos(10, 3);
 
-    GameController *controller = new GameController(scene, puntajeDisplay);
+    controller = new GameController(scene, puntajeDisplay);
     connect(controller, &GameController::changeScene, this, &MainWindow::onChangeScene);
     controller->start();
+}
+
+void MainWindow::reiniciarJuego() {
+    if (controller) {
+        controller->clearScene();
+        delete controller;
+    }
+    iniciarJuego();
 }
 
 void MainWindow::onChangeScene(QGraphicsScene *newScene) {

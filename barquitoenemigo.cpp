@@ -31,7 +31,7 @@ void Barquitoenemigo::move()
     if (pos().x() < 0) {
         scene()->removeItem(this);
         delete this;
-        qDebug() << "Se elimina el barquito enemigo";
+        //qDebug() << "Se elimina el barquito enemigo";
     }
 }
 

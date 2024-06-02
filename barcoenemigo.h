@@ -13,8 +13,10 @@ public:
     void recibirDisparo();
 public slots:
     void shoot();
+    void checkCollisions();
 private:
     int vida;
+    QTimer *collisionTimer;
 };
 
 #endif // BARCOENEMIGO_H
