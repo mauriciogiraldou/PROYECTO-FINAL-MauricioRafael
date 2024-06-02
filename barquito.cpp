@@ -36,12 +36,10 @@ void Barquito::keyPressEvent(QKeyEvent *event){
 }
 void Barquito::reducirVidas() {
     vidas--;
-    qDebug() << "Vidas restantes: " << vidas;
     if (vidasDisplay) {
         vidasDisplay->decrementar();
     }
     if (vidas <= 0) {
-        qDebug() << "Game Over!";
         scene()->removeItem(this);
         delete this;
     }

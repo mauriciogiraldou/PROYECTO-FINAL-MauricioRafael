@@ -51,7 +51,7 @@ void GameController::spawnLargeEnemy() {
 }
 
 void GameController::checkPuntaje() {
-    qDebug() << "Verificando puntaje. Puntaje actual: " << puntaje->getPuntaje();
+    //qDebug() << "Verificando puntaje. Puntaje actual: " << puntaje->getPuntaje();
 
     if (puntaje->hasReached(200) && puntaje->getPuntaje() < 400) {
         if (!smallEnemyTimer->isActive()) {
@@ -95,4 +95,12 @@ void GameController::clearScene() {
         scene->removeItem(item);
         delete item;
     }
+
+    smallEnemyTimer->stop();
+    largeEnemyTimer->stop();
+    puntajeCheckTimer->stop();
+    bolaTimer->stop();
+
+    gameOver = false;
+    jefeFinalSpawned = false;
 }

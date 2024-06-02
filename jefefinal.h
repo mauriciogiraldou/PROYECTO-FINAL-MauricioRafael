@@ -3,6 +3,7 @@
 
 #include <QGraphicsPixmapItem>
 #include <QObject>
+#include <QTimer>
 
 class JefeFinal : public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
@@ -21,6 +22,8 @@ private slots:
 private:
     int direccion;
     int vida;
+    void checkCollisions();
+    QTimer *collisionTimer;
 };
 
 #endif // JEFEFINAL_H

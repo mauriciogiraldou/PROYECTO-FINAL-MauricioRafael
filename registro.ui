@@ -17,19 +17,20 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>60</y>
-     <width>261</width>
-     <height>41</height>
+     <y>30</y>
+     <width>291</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Segoe Print</family>
+     <family>Monotype Corsiva</family>
      <pointsize>24</pointsize>
+     <italic>true</italic>
     </font>
    </property>
    <property name="text">
-    <string>constantinopolis</string>
+    <string>CONSTANTINOPOLIS</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">

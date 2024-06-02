@@ -39,7 +39,9 @@ private:
     QTimer *spawnTimer;
     JefeFinal *jefefinal;
     void iniciarJuego();
+    GameController *controller;
 private slots:
     void onChangeScene(QGraphicsScene *newScene);
+    void reiniciarJuego();
 };
 #endif // MAINWINDOW_H

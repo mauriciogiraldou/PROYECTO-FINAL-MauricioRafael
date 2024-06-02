@@ -1,7 +1,6 @@
 // nivel2.h
 #ifndef NIVEL2_H
 #define NIVEL2_H
-
 #include <QGraphicsScene>
 #include <QGraphicsTextItem>
 
@@ -12,7 +11,7 @@ public:
 
     void startLevel();
 private:
-    QGraphicsTextItem *congratulationsText;
+
 };
 
 #endif // NIVEL2_H

@@ -50,14 +50,14 @@ void Disp::move() {
             delete this;
 
             // Incrementar puntaje si es un Barquitoenemigo
-            puntajeDisplay->incrementar(50);
+            puntajeDisplay->incrementar(5);
             return;
         } else if (typeid(*(colliding_items[i])) == typeid(Barcoenemigo)) {
             // Disminuir la vida del Barcoenemigo
             Barcoenemigo *enemy = dynamic_cast<Barcoenemigo *>(colliding_items[i]);
             if (enemy) {
                 enemy->recibirDisparo();
-                puntajeDisplay->incrementar(10);
+                puntajeDisplay->incrementar(1);
             }
 
             // Remover el proyectil
@@ -83,6 +83,6 @@ void Disp::move() {
     if (pos().y() > 800 || pos().x() < 0 || pos().x() > 1400) {
         scene()->removeItem(this);
         delete this;
-        qDebug() << "se elimina la balurda";
+        //qDebug() << "se elimina la balurda";
     }
 }

@@ -11,6 +11,7 @@ class GameController : public QObject {
 public:
     GameController(QGraphicsScene *scene, Puntaje *puntaje, QObject *parent = nullptr);
     void start();
+    void clearScene();
 signals:
     void changeScene(QGraphicsScene *newScene);
 
@@ -21,7 +22,7 @@ private slots:
     void spawnBola(); // Añadir esta función para manejar la caída de bolas
     void onJefeFinalDerrotado();
 private:
-    void clearScene();
+
     QGraphicsScene *scene;
     Puntaje *puntaje;
     QTimer *smallEnemyTimer;
