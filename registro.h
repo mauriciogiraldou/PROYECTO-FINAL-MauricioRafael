@@ -1,20 +1,20 @@
 #ifndef REGISTRO_H
 #define REGISTRO_H
-
-#include <QWidget>
+#include "ui_registro.h"
+#include <QDialog>
 #include <QMap>
 
 namespace Ui {
 class registro;
 }
 
-class registro : public QWidget
+class Registro : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit registro(QWidget *parent = nullptr);
-    ~registro();
+    explicit Registro(QWidget *parent = nullptr);
+    ~Registro();
 
 signals:
     void usuarioAutenticado();
@@ -25,7 +25,7 @@ private slots:
 
 private:
     Ui::registro *ui;
-    QMap<QString, QString> usuarios;
+    QMap<QString, QString> usuarios; // Mapa para almacenar las credenciales de los usuarios
 
     void registrarUsuario(const QString &nombreUsuario, const QString &contrasena);
     bool autenticarUsuario(const QString &nombreUsuario, const QString &contrasena);

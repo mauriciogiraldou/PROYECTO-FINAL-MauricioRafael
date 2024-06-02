@@ -38,6 +38,7 @@ private:
     Barquitoenemigo *barquitoenemigo;
     QTimer *spawnTimer;
     JefeFinal *jefefinal;
+    void iniciarJuego();
 private slots:
     void onChangeScene(QGraphicsScene *newScene);
 };
