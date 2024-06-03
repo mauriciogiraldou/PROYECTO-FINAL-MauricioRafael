@@ -1,5 +1,6 @@
 #include "barquito.h"
-Barquito::Barquito(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
+#include <QDebug>
+Barquito::Barquito(QGraphicsItem *parent):QGraphicsPixmapItem(parent),vidas(30)
 {
     QPixmap pixmap(":/imagenes/barco protagonista.png");
     setPixmap(pixmap);
@@ -36,12 +37,16 @@ void Barquito::keyPressEvent(QKeyEvent *event){
 }
 void Barquito::reducirVidas() {
     vidas--;
+    qDebug()<<"te quite una vida" <<vidas;
     if (vidasDisplay) {
         vidasDisplay->decrementar();
     }
     if (vidas <= 0) {
+
+
         scene()->removeItem(this);
         delete this;
+
     }
 }
 void Barquito::incrementarPuntaje(int puntos) {

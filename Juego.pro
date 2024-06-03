@@ -22,7 +22,6 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     nivel2.cpp \
-    projectile.cpp \
     proyectilenemigo.cpp \
     puntaje.cpp \
     registro.cpp \
@@ -41,7 +40,6 @@ HEADERS += \
     jefeproyectil.h \
     mainwindow.h \
     nivel2.h \
-    projectile.h \
     proyectilenemigo.h \
     puntaje.h \
     registro.h \

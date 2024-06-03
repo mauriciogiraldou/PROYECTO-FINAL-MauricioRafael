@@ -3,6 +3,7 @@
 #include "gamecontroller.h"
 #include "nivel2.h"
 #include "registro.h"
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -34,6 +35,7 @@ void MainWindow::iniciarJuego() {
 
     Barquito *barco = new Barquito;
     barco->setFlag(QGraphicsPixmapItem::ItemIsFocusable);
+
     barco->setFocus();
     barco->setPos(-10, 200);
     scene->addItem(barco);
@@ -65,6 +67,7 @@ void MainWindow::reiniciarJuego() {
 }
 
 void MainWindow::onChangeScene(QGraphicsScene *newScene) {
+    controller->clearScene();
     ui->graphicsView->setScene(newScene);
     newScene->setSceneRect(0, 0, ui->graphicsView->width(), ui->graphicsView->height());
 }

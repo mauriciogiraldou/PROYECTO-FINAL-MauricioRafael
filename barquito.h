@@ -19,9 +19,11 @@ public:
     void setVidas(Vidas* v) { vidasDisplay = v; }
 private:
     int velocidad=10;
-    int vidas=3;
+    int vidas;
     Puntaje* puntajeDisplay = nullptr;
     Vidas* vidasDisplay=nullptr;
+
+
 
 };
 

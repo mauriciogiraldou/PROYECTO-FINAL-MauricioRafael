@@ -21,6 +21,7 @@ private:
     double tiempoTotal;    // Tiempo total transcurrido
     void checkCollisions();
 
+
 };
 
 #endif // BARQUITOENEMIGO_H

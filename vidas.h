@@ -14,6 +14,8 @@ public:
 
 private:
     int vida;
+
+
 };
 
 #endif // VIDAS_H
