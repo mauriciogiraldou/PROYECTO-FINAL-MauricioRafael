@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "gamecontroller.h"
-#include "nivel2.h"
 #include "registro.h"
 #include <QMessageBox>
 
@@ -32,6 +31,7 @@ void MainWindow::iniciarJuego() {
     ui->graphicsView->setScene(scene);
     scene->setSceneRect(0, 0, ui->graphicsView->width(), ui->graphicsView->height());
     ui->graphicsView->setMouseTracking(true);
+    ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     Barquito *barco = new Barquito;
     barco->setFlag(QGraphicsPixmapItem::ItemIsFocusable);
@@ -40,8 +40,7 @@ void MainWindow::iniciarJuego() {
     barco->setPos(-10, 200);
     scene->addItem(barco);
 
-    Barquitoenemigo *barquitoenemigo = new Barquitoenemigo;
-    scene->addItem(barquitoenemigo);
+
 
     Puntaje *puntajeDisplay = new Puntaje();
     scene->addItem(puntajeDisplay);
@@ -58,16 +57,22 @@ void MainWindow::iniciarJuego() {
     controller->start();
 }
 
-void MainWindow::reiniciarJuego() {
-    if (controller) {
-        controller->clearScene();
-        delete controller;
-    }
-    iniciarJuego();
-}
+
 
 void MainWindow::onChangeScene(QGraphicsScene *newScene) {
     controller->clearScene();
+    delete barco;
     ui->graphicsView->setScene(newScene);
+    ui->graphicsView->setFixedSize(1366, 768);
     newScene->setSceneRect(0, 0, ui->graphicsView->width(), ui->graphicsView->height());
+    QPixmap fondo(":/imagenes/fondo_mundo_2.png");
+    QGraphicsPixmapItem *imagen_fondo = new QGraphicsPixmapItem(fondo);
+    imagen_fondo->setPos(0, 0);
+    newScene->addItem(imagen_fondo);
+    soldado_otomano *solda=new soldado_otomano;
+    solda->setFlag(QGraphicsPixmapItem::ItemIsFocusable);
+    solda->setFocus();
+    solda->setPos(-10, 200);
+    newScene->addItem(solda);
+
 }

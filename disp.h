@@ -8,7 +8,7 @@
 #include <QBrush>
 #include <QGraphicsScene>
 #include <QList>
-#include <puntaje.h>
+#include "puntaje.h"
 class Disp : public QObject,public QGraphicsEllipseItem{
     Q_OBJECT
 public:

@@ -6,7 +6,7 @@
 #include "barquito.h"
 
 JefeFinal::JefeFinal(QGraphicsItem *parent)
-    : QGraphicsPixmapItem(parent), direccion(1), vida(400) {
+    : QGraphicsPixmapItem(parent), direccion(1), vida(1) {
     QPixmap pixmap(":/imagenes/Barco jefe.png");
     setPixmap(pixmap);
     setScale(0.68);

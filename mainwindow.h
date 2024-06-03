@@ -17,6 +17,7 @@
 #include "barcoenemigo.h"
 #include "jefefinal.h"
 #include "nivel2.h"
+#include "soldado_otomano.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -42,7 +43,6 @@ private:
     GameController *controller;
 private slots:
     void onChangeScene(QGraphicsScene *newScene);
-    void reiniciarJuego();
 
 };
 #endif // MAINWINDOW_H
