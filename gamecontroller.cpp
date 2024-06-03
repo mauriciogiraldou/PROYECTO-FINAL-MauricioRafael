@@ -83,16 +83,6 @@ void GameController::spawnBola() {
     scene->addItem(bola2);
     scene->addItem(bola3);
 }
-
-void GameController::onJefeFinalDerrotado() {
-    bolaTimer->stop();
-
-    Nivel2 *nivel2 = new Nivel2();
-    emit changeScene(nivel2);
-    nivel2->startLevel();
-
-    qDebug() << "Jefe final derrotado, cambiando a Nivel 2.";
-}
 void GameController::clearScene() {
     smallEnemyTimer->stop();
     largeEnemyTimer->stop();
@@ -100,4 +90,10 @@ void GameController::clearScene() {
     bolaTimer->stop();
 
 
+}
+void GameController::onJefeFinalDerrotado() {
+    bolaTimer->stop();
+    Nivel2 *nivel2 = new Nivel2();
+    emit changeScene(nivel2);
+    qDebug() << "Jefe final derrotado, cambiando a Nivel 2.";
 }

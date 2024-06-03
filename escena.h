@@ -9,7 +9,7 @@ Q_OBJECT
 public:
     Escena(QObject *parent = nullptr);
 protected:
-    //void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
+    void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
 };
 
 #endif // ESCENA_H
