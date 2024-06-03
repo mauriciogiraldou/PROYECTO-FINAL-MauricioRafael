@@ -77,7 +77,11 @@ void GameController::checkPuntaje() {
 
 void GameController::spawnBola() {
     Bola *bola = new Bola();
+    Bola *bola2 = new Bola();
+    Bola *bola3 = new Bola();
     scene->addItem(bola);
+    scene->addItem(bola2);
+    scene->addItem(bola3);
 }
 
 void GameController::onJefeFinalDerrotado() {
@@ -90,17 +94,10 @@ void GameController::onJefeFinalDerrotado() {
     qDebug() << "Jefe final derrotado, cambiando a Nivel 2.";
 }
 void GameController::clearScene() {
-    QList<QGraphicsItem *> items = scene->items();
-    for (QGraphicsItem *item : items) {
-        scene->removeItem(item);
-        delete item;
-    }
-
     smallEnemyTimer->stop();
     largeEnemyTimer->stop();
     puntajeCheckTimer->stop();
     bolaTimer->stop();
 
-    gameOver = false;
-    jefeFinalSpawned = false;
+
 }

@@ -43,5 +43,6 @@ private:
 private slots:
     void onChangeScene(QGraphicsScene *newScene);
     void reiniciarJuego();
+
 };
 #endif // MAINWINDOW_H

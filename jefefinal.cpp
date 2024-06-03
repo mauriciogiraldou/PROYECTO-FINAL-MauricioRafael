@@ -28,12 +28,12 @@ void JefeFinal::move() {
     double step = 4.5;
     if (direccion == 1) {
         setPos(x(), y() + step);
-        if (y() + pixmap().height() >= 950) {
+        if (y() + pixmap().height() >= 1100) {
             direccion = -1;
         }
     } else if (direccion == -1) {
         setPos(x(), y() - step);
-        if (y() <= 0) {
+        if (y() <= -280) {
             direccion = 1;
         }
     }
