@@ -5,9 +5,12 @@
 #include "barquito.h" // Para manejar colisiones con el barco del jugador
 
 ProyectilEnemigo::ProyectilEnemigo(QGraphicsItem *parent)
-    : QObject(), QGraphicsEllipseItem(parent) {
-    setRect(0, 0, 45, 45);
-    setBrush(Qt::gray);
+    : QObject(), QGraphicsPixmapItem(parent) {
+    //setRect(0, 0, 45, 45);
+    //setBrush(Qt::gray);
+    setScale(0.40);
+    QPixmap pixmap(":/imagenes/bodoque_piedra2.png");
+    setPixmap(pixmap);
     QTimer *timer = new QTimer(this);
     timer->start(50);
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));

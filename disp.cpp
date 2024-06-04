@@ -4,9 +4,12 @@
 #include "barcoenemigo.h"
 #include "jefefinal.h"
 
-Disp::Disp(Puntaje *puntaje): puntajeDisplay(puntaje) {
-    setRect(0, 0, 15, 15);
-    setBrush(Qt::gray);
+Disp::Disp(Puntaje *puntaje,QGraphicsItem *parent): puntajeDisplay(puntaje),QGraphicsPixmapItem(parent) {
+    QPixmap pixmap(":/imagenes/bodoque.png");
+    setPixmap(pixmap);
+    setScale(0.40);
+    //setRect(0, 0, 15, 15);
+    //setBrush(Qt::gray);
     QTimer *timer = new QTimer(this); // Asociar el temporizador a la instancia actual
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
     timer->start(80);
@@ -50,14 +53,14 @@ void Disp::move() {
             delete this;
 
             // Incrementar puntaje si es un Barquitoenemigo
-            puntajeDisplay->incrementar(400);
+            puntajeDisplay->incrementar(50);
             return;
         } else if (typeid(*(colliding_items[i])) == typeid(Barcoenemigo)) {
             // Disminuir la vida del Barcoenemigo
             Barcoenemigo *enemy = dynamic_cast<Barcoenemigo *>(colliding_items[i]);
             if (enemy) {
                 enemy->recibirDisparo();
-                puntajeDisplay->incrementar(10);
+                puntajeDisplay->incrementar(2);
             }
 
             // Remover el proyectil

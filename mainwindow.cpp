@@ -9,12 +9,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    // Mostrar el formulario de registro
     Registro registroDialog;
     connect(&registroDialog, &Registro::usuarioAutenticado, this, &MainWindow::iniciarJuego);
     if (registroDialog.exec() == QDialog::Rejected) {
-        // Si el registro o la autenticación fallan, cerramos la aplicación
         close();
         return;
     }

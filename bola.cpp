@@ -7,7 +7,7 @@ Bola::Bola(QGraphicsItem *parent)
     : QGraphicsPixmapItem(parent), tiempo(0), velocidadY(0), gravedad(9.8) {
     QPixmap pixmap(":/imagenes/bodoque2.png");
     setPixmap(pixmap);
-    setScale(0.70);
+    setScale(0.50);
     int random_number=rand()%1000;
     setPos(random_number, -80); // Aparecer en una posición aleatoria en la parte superior
     //qDebug()<<"se crear la bola";

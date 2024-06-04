@@ -11,5 +11,11 @@
         <file>imagenes/soldado_o_derecha.png</file>
         <file>imagenes/soldado_o_izquierda.png</file>
         <file>imagenes/fondo_mundo_2.png</file>
+        <file>imagenes/caballo_o_abajo.png</file>
+        <file>imagenes/caballo_o_arriba.png</file>
+        <file>imagenes/caballo_o_derecha.png</file>
+        <file>imagenes/caballo_o_izquierda.png</file>
+        <file>imagenes/bodoque.png</file>
+        <file>imagenes/bodoque_piedra2.png</file>
     </qresource>
 </RCC>
