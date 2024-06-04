@@ -1,0 +1,23 @@
+//Problema 1:
+//Verificación de colosión:
+ // Verificar colisiones con los muros verdaderos
+    QList<QGraphicsItem *> collidingItems = collidingItems();
+    foreach (QGraphicsItem *item, collidingItems) {
+        if (dynamic_cast<Muro_verdadero *>(item)) {
+            // Si hay colisión, restaurar la posición anterior
+            setPos(x_anterior, y_anterior);
+            break;
+        }
+    }
+
+//Se solucionó llamando a collidingItems específicamente desde QGraphicsPixmapItem
+
+// Verificar colisiones con los muros verdaderos
+    QList<QGraphicsItem *> collidingItems = QGraphicsPixmapItem::collidingItems();
+    foreach (QGraphicsItem *item, collidingItems) {
+        if (dynamic_cast<Muro_verdadero *>(item)) {
+            // Si hay colisión, restaurar la posición anterior
+            setPos(x_anterior, y_anterior);
+            break;
+        }
+    }
