@@ -25,6 +25,7 @@ SOURCES += \
     proyectilenemigo.cpp \
     puntaje.cpp \
     registro.cpp \
+    soldado_bizantino.cpp \
     soldado_otomano.cpp \
     vidas.cpp
 
@@ -44,6 +45,7 @@ HEADERS += \
     proyectilenemigo.h \
     puntaje.h \
     registro.h \
+    soldado_bizantino.h \
     soldado_otomano.h \
     vidas.h
 

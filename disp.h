@@ -1,6 +1,7 @@
 #ifndef DISP_H
 #define DISP_H
 #include <QGraphicsEllipseItem>
+#include <QGraphicsPixmapItem>
 #include <QGraphicsRectItem>
 #include <QObject>
 #include <QTimer>
@@ -9,10 +10,10 @@
 #include <QGraphicsScene>
 #include <QList>
 #include "puntaje.h"
-class Disp : public QObject,public QGraphicsEllipseItem{
+class Disp : public QObject,public QGraphicsPixmapItem{
     Q_OBJECT
 public:
-    Disp(Puntaje *puntaje);
+    Disp(Puntaje *puntaje,QGraphicsItem *parent=nullptr);
 public slots:
     void move();
 
