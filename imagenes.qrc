@@ -10,12 +10,19 @@
         <file>imagenes/soldado_o_arriba.png</file>
         <file>imagenes/soldado_o_derecha.png</file>
         <file>imagenes/soldado_o_izquierda.png</file>
-        <file>imagenes/fondo_mundo_2.png</file>
         <file>imagenes/caballo_o_abajo.png</file>
         <file>imagenes/caballo_o_arriba.png</file>
         <file>imagenes/caballo_o_derecha.png</file>
         <file>imagenes/caballo_o_izquierda.png</file>
         <file>imagenes/bodoque.png</file>
         <file>imagenes/bodoque_piedra2.png</file>
+        <file>imagenes/fondo2_mundo2.png</file>
+        <file>imagenes/marco4.png</file>
+        <file>imagenes/arbol_aereo.png</file>
+        <file>imagenes/arbol_aereo_pino.png</file>
+        <file>imagenes/campamento.png</file>
+        <file>imagenes/orban_canon.png</file>
+        <file>imagenes/piedra.png</file>
+        <file>imagenes/arrowcita.png</file>
     </qresource>
 </RCC>

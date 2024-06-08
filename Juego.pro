@@ -21,7 +21,10 @@ SOURCES += \
     jefeproyectil.cpp \
     main.cpp \
     mainwindow.cpp \
+    muro.cpp \
+    muro_verdadero.cpp \
     nivel2.cpp \
+    proyectil.cpp \
     proyectilenemigo.cpp \
     puntaje.cpp \
     registro.cpp \
@@ -41,7 +44,10 @@ HEADERS += \
     jefefinal.h \
     jefeproyectil.h \
     mainwindow.h \
+    muro.h \
+    muro_verdadero.h \
     nivel2.h \
+    proyectil.h \
     proyectilenemigo.h \
     puntaje.h \
     registro.h \
