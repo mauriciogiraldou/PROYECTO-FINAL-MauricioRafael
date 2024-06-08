@@ -1,5 +1,7 @@
 #include "barquito.h"
 #include <QDebug>
+#include <QCoreApplication>
+#include <QMessageBox>
 Barquito::Barquito(QGraphicsItem *parent):QGraphicsPixmapItem(parent),vidas(3)
 {
     QPixmap pixmap(":/imagenes/barco protagonista.png");
@@ -36,16 +38,19 @@ void Barquito::keyPressEvent(QKeyEvent *event){
     }
 }
 void Barquito::reducirVidas() {
-    vidas--;
+
     //qDebug()<<"te quite una vida" <<vidas;
     if (vidasDisplay) {
         vidasDisplay->decrementar();
     }
-    if (vidas <= 0) {
-
-
+    if (vidasDisplay->getVidas() == 0) {
         scene()->removeItem(this);
         delete this;
+        if (this->scene() == nullptr) {
+            // Objeto eliminado, muestra el mensaje y cierra la aplicación
+            //QMessageBox::information(nullptr, "Game Over", "Has sido atrapado por un enemigo. Juego terminado.");
+            //QCoreApplication::quit();
+        }
 
     }
 }

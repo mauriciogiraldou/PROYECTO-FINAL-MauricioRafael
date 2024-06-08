@@ -79,6 +79,9 @@ void MainWindow::onChangeScene(QGraphicsScene *newScene) {
     solda->setFocus();
     solda->setPos(-10, 200);
     newScene->addItem(solda);
+    soldado_bizantino *bizancio=new soldado_bizantino();
+    bizancio->setPos(100,400);
+    newScene->addItem(bizancio);
     Muro *piedra2=new Muro(0, 650,":/imagenes/piedra.png");
     Muro *piedra=new Muro(150, 630,":/imagenes/piedra.png");
     Muro *arbol1=new Muro(1000, 70,":/imagenes/arbol_aereo_pino.png");

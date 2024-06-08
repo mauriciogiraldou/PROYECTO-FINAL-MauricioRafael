@@ -19,3 +19,7 @@
     int Vidas::getPuntaje() {
         return vida;
     }
+    int Vidas::getVidas(){
+        return vida;
+
+    }

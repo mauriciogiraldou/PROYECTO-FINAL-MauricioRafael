@@ -24,5 +24,9 @@
         <file>imagenes/orban_canon.png</file>
         <file>imagenes/piedra.png</file>
         <file>imagenes/arrowcita.png</file>
+        <file>imagenes/soldado_bizantino_abajo.png</file>
+        <file>imagenes/soldado_bizantino_arriba.png</file>
+        <file>imagenes/soldado_bizantino_derecha.png</file>
+        <file>imagenes/soldado_bizantino_izquierda.png</file>
     </qresource>
 </RCC>

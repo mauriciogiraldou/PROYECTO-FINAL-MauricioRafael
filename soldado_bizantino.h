@@ -2,14 +2,23 @@
 #define SOLDADO_BIZANTINO_H
 
 #include <QObject>
+#include <QTimer>
+#include <QGraphicsPixmapItem>
 
-class soldado_bizantino : public QObject
+class soldado_bizantino : public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    explicit soldado_bizantino(QObject *parent = nullptr);
+    explicit soldado_bizantino(QGraphicsItem *parent = nullptr);
+public slots:
+    void followPlayer();
 
-signals:
+private:
+    QTimer *movementTimer;
+    QGraphicsItem *player; // Pointer to the player to follow
+    int velocidad;
+
+    void updateImage();
 };
 
 #endif // SOLDADO_BIZANTINO_H

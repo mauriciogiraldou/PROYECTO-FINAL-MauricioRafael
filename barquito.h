@@ -22,9 +22,6 @@ private:
     int vidas;
     Puntaje* puntajeDisplay = nullptr;
     Vidas* vidasDisplay=nullptr;
-
-
-
 };
 
 #endif // BARQUITO_H

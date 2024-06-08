@@ -11,9 +11,11 @@ public:
 
     void decrementar();
     int getPuntaje();
-
+    int getVidas();
 private:
     int vida;
+
+
 
 
 };
