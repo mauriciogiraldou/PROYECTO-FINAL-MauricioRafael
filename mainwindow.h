@@ -18,6 +18,9 @@
 #include "jefefinal.h"
 #include "nivel2.h"
 #include "soldado_otomano.h"
+#include "muro.h"
+#include "muro_verdadero.h"
+#include "proyectil.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;

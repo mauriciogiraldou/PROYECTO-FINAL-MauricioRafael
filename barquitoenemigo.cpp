@@ -8,7 +8,7 @@ Barquitoenemigo::Barquitoenemigo(QGraphicsItem *parent)
     setPixmap(pixmap);
     setScale(0.40);
     int random_number = rand() % 600;
-    setPos(1220, random_number);
+    setPos(1400, random_number);
     // Temporizador para mover el enemigo
     moveTimer = new QTimer(this);
     connect(moveTimer, &QTimer::timeout, this, &Barquitoenemigo::move);
@@ -28,7 +28,7 @@ void Barquitoenemigo::move()
     // Chequear colisiones con el barquito
     checkCollisions();
 
-    if (pos().x() < 0) {
+    if (pos().x() < -20) {
         scene()->removeItem(this);
         delete this;
         //qDebug() << "Se elimina el barquito enemigo";

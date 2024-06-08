@@ -53,7 +53,7 @@ void Disp::move() {
             delete this;
 
             // Incrementar puntaje si es un Barquitoenemigo
-            puntajeDisplay->incrementar(50);
+            puntajeDisplay->incrementar(100);
             return;
         } else if (typeid(*(colliding_items[i])) == typeid(Barcoenemigo)) {
             // Disminuir la vida del Barcoenemigo
