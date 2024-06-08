@@ -21,6 +21,7 @@
 #include "muro.h"
 #include "muro_verdadero.h"
 #include "proyectil.h"
+#include "soldado_bizantino.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;

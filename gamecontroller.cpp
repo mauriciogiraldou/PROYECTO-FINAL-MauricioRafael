@@ -88,8 +88,6 @@ void GameController::clearScene() {
     largeEnemyTimer->stop();
     puntajeCheckTimer->stop();
     bolaTimer->stop();
-
-
 }
 void GameController::onJefeFinalDerrotado() {
     bolaTimer->stop();
