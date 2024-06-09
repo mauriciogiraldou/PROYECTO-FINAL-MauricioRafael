@@ -6,7 +6,7 @@
 #include "barquito.h"
 
 JefeFinal::JefeFinal(QGraphicsItem *parent)
-    : QGraphicsPixmapItem(parent), direccion(1), vida(20) {
+    : QGraphicsPixmapItem(parent), direccion(1), vida(5) {
     QPixmap pixmap(":/imagenes/Barco jefe.png");
     setPixmap(pixmap);
     setScale(0.68);
@@ -61,9 +61,11 @@ void JefeFinal::recibirDisparo() {
     vida -= 1;
     //qDebug() << "Jefe recibiendo disparo";
     if (vida <= 0) {
-        emit jefeDerrotado();
         scene()->removeItem(this);
+        emit jefeDerrotado();
         delete this;
+
+
         //qDebug() << "Jefe final destruido";
     }
 }

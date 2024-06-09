@@ -1,8 +1,11 @@
 #include "soldado_otomano.h"
 #include "muro_verdadero.h"
 #include <QGraphicsScene>
+#include <QDebug>
+#include <QMessageBox>
+#include <QApplication>
 
-soldado_otomano::soldado_otomano(): vidas(3),velocidad(10),currentAngle(0),canShoot(true) {
+soldado_otomano::soldado_otomano(): vidas(30),velocidad(10),velocidaddano(510),currentAngle(0),canShoot(true) {
     QPixmap personaje_principal(":/imagenes/caballo_o_abajo.png");
     setPixmap(personaje_principal);
     setScale(0.78);
@@ -40,7 +43,7 @@ void soldado_otomano::keyPressEvent(QKeyEvent *event) {
         scene()->addItem(proyectil);
         // Deshabilitar el disparo y empezar el temporizador
         canShoot = false;
-        shootTimer.start(560);  // Establecer el tiempo de espera en 560 milisegundos
+        shootTimer.start(velocidaddano);  // Establecer el tiempo de espera en 560 milisegundos
     }
 
     // Verificar colisiones con los muros verdaderos
@@ -56,4 +59,33 @@ void soldado_otomano::keyPressEvent(QKeyEvent *event) {
 void soldado_otomano::enableShooting() {
     canShoot = true;
     shootTimer.stop();
+}
+void soldado_otomano::reducirVida()
+{
+    vidas--;
+    qDebug()<<"probando"<<vidas;
+
+    if (vidas <= 0) {
+        QMessageBox::information(nullptr, "Game Over", "Has sido atrapado por un enemigo. Juego terminado.");
+        QCoreApplication::quit();
+    }
+}
+
+int soldado_otomano::getdano()
+{
+    return velocidaddano;
+}
+void soldado_otomano::aumentarVida() {
+    vidas++;
+    // Actualiza la visualización de la vida si es necesario
+}
+
+void soldado_otomano::aumentarVelocidad() {
+    velocidad += 1; // Incrementa la velocidad
+    // Actualiza la visualización de la velocidad si es necesario
+}
+
+void soldado_otomano::aumentarDano()
+{
+    velocidaddano-=25;
 }

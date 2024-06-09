@@ -22,6 +22,7 @@
 #include "muro_verdadero.h"
 #include "proyectil.h"
 #include "soldado_bizantino.h"
+#include "gamecontrollernivel2.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -45,6 +46,7 @@ private:
     JefeFinal *jefefinal;
     void iniciarJuego();
     GameController *controller;
+    GameControllerNivel2 *controllerNivel2;
 private slots:
     void onChangeScene(QGraphicsScene *newScene);
 
