@@ -7,6 +7,8 @@
 #include "powerupvida.h"
 #include "powerupvelocidad.h"
 #include "powerupdano.h"
+#include "polvora.h"
+#include <stdlib.h>
 
 soldado_bizantino::soldado_bizantino(QGraphicsItem *parent)
     : QGraphicsPixmapItem(parent), velocidad(4),vida(4),player(nullptr) {
@@ -87,6 +89,7 @@ void soldado_bizantino::reducirVida(int cantidad) {
     qDebug() << "Vida del soldado bizantino: " << vida;
     if (vida <= 0) {
         dropPowerUp();
+        emit soldadoMuerto(this);
         scene()->removeItem(this);
         delete this;
     }
@@ -95,7 +98,7 @@ void soldado_bizantino::dropPowerUp() {
     int random = rand() % 100;
     if (random < 20) { // 20% de probabilidad de generar un power-up
         PowerUp *powerup;
-        int tipo =rand()%3; // 0, 1, o 2
+        int tipo = rand() %3 ; // 0, 1, o 2
         if (tipo == 0) {
             powerup = new PowerUpVida();
         } else if (tipo == 1) {

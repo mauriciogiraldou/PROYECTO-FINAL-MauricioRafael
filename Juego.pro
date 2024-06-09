@@ -13,6 +13,7 @@ SOURCES += \
     barquito.cpp \
     barquitoenemigo.cpp \
     bola.cpp \
+    canon.cpp \
     disp.cpp \
     escena.cpp \
     gamecontroller.cpp \
@@ -24,11 +25,14 @@ SOURCES += \
     muro.cpp \
     muro_verdadero.cpp \
     nivel2.cpp \
+    polvora.cpp \
+    polvoradisplay.cpp \
     powerup.cpp \
     powerupdano.cpp \
     powerupvelocidad.cpp \
     powerupvida.cpp \
     proyectil.cpp \
+    proyectilc.cpp \
     proyectilenemigo.cpp \
     puntaje.cpp \
     registro.cpp \
@@ -41,6 +45,7 @@ HEADERS += \
     barquito.h \
     barquitoenemigo.h \
     bola.h \
+    canon.h \
     disp.h \
     escena.h \
     gamecontroller.h \
@@ -51,11 +56,14 @@ HEADERS += \
     muro.h \
     muro_verdadero.h \
     nivel2.h \
+    polvora.h \
+    polvoradisplay.h \
     powerup.h \
     powerupdano.h \
     powerupvelocidad.h \
     powerupvida.h \
     proyectil.h \
+    proyectilc.h \
     proyectilenemigo.h \
     puntaje.h \
     registro.h \

@@ -23,6 +23,7 @@
 #include "proyectil.h"
 #include "soldado_bizantino.h"
 #include "gamecontrollernivel2.h"
+#include "canon.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;

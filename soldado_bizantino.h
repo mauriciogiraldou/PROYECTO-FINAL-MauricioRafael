@@ -21,6 +21,8 @@ private:
     int velocidad;
     void updateImage();
     int vida;
+signals:
+    void soldadoMuerto(QGraphicsItem *item);
 };
 
 #endif // SOLDADO_BIZANTINO_H
