@@ -31,5 +31,6 @@
         <file>imagenes/power_health.png</file>
         <file>imagenes/power_speed.png</file>
         <file>imagenes/power_blast.png</file>
+        <file>imagenes/polvora.png</file>
     </qresource>
 </RCC>

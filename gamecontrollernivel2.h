@@ -5,18 +5,28 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include "soldado_bizantino.h"
+#include "polvoradisplay.h"
+#include "soldado_otomano.h"
+#include "canon.h"
 
 class GameControllerNivel2 : public QObject {
     Q_OBJECT
 public:
-    explicit GameControllerNivel2(QGraphicsScene *scene, QObject *parent = nullptr);
+    explicit GameControllerNivel2(QGraphicsScene *scene,soldado_otomano *jugador,Canon *canon, QObject *parent = nullptr);
     ~GameControllerNivel2();
 
 private slots:
     void spawnEnemigo();
+public slots:
+    void recolectarPolvora();
+    void verificarPolvora();
 private:
     QGraphicsScene *scene;
     QTimer *spawnTimer;
+    PolvoraDisplay *polvoraDisplay;
+    soldado_otomano *jugador;
+    Canon *canon;
+    int contadorPolvora;
 };
 
 #endif // GAMECONTROLLERNIVEL2_H

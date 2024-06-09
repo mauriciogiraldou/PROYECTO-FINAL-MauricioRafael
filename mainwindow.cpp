@@ -73,11 +73,14 @@ void MainWindow::onChangeScene(QGraphicsScene *newScene) {
     Muro_verdadero *orbanverdadero = new Muro_verdadero(690, 103, 20, 6);
     orbanverdadero->setZValue(0);
     newScene->addItem(orbanverdadero);
-    Muro *campamento=new Muro(220, 70,":/imagenes/campamento.png");
-    Muro *canon=new Muro(650, 40,":/imagenes/orban_canon");
-    campamento->setZValue(3);
-    canon->setZValue(1);
+    Canon *canon=new Canon(100);
+    canon->setPos(650,40);
     newScene->addItem(canon);
+    Muro *campamento=new Muro(220, 70,":/imagenes/campamento.png");
+    //Muro *canon=new Muro(650, 40,":/imagenes/orban_canon");
+    campamento->setZValue(3);
+    //canon->setZValue(1);
+    //newScene->addItem(canon);
     newScene->addItem(campamento);
     soldado_otomano *solda=new soldado_otomano;
     solda->setFlag(QGraphicsPixmapItem::ItemIsFocusable);
@@ -96,8 +99,5 @@ void MainWindow::onChangeScene(QGraphicsScene *newScene) {
     Muro *marco=new Muro(0,0,":/imagenes/marco4.png");
     marco->setZValue(3);
     newScene->addItem(marco);
-    controllerNivel2 = new GameControllerNivel2(newScene, this);
-
-
-
+    controllerNivel2 = new GameControllerNivel2(newScene,solda,canon, this);
 }
