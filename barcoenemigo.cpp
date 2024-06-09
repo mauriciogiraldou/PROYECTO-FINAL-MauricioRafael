@@ -3,7 +3,7 @@
 #include "barquito.h"
 
 Barcoenemigo::Barcoenemigo(QGraphicsItem *parent)
-    : QObject(), QGraphicsPixmapItem(parent),vida(25) {
+    : QObject(), QGraphicsPixmapItem(parent),vida(10) {
     QPixmap pixmap(":/imagenes/barco enemigo.png");
     setPixmap(pixmap);
     setScale(0.40);

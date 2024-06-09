@@ -28,5 +28,8 @@
         <file>imagenes/soldado_bizantino_arriba.png</file>
         <file>imagenes/soldado_bizantino_derecha.png</file>
         <file>imagenes/soldado_bizantino_izquierda.png</file>
+        <file>imagenes/power_health.png</file>
+        <file>imagenes/power_speed.png</file>
+        <file>imagenes/power_blast.png</file>
     </qresource>
 </RCC>

@@ -24,6 +24,10 @@ SOURCES += \
     muro.cpp \
     muro_verdadero.cpp \
     nivel2.cpp \
+    powerup.cpp \
+    powerupdano.cpp \
+    powerupvelocidad.cpp \
+    powerupvida.cpp \
     proyectil.cpp \
     proyectilenemigo.cpp \
     puntaje.cpp \
@@ -47,6 +51,10 @@ HEADERS += \
     muro.h \
     muro_verdadero.h \
     nivel2.h \
+    powerup.h \
+    powerupdano.h \
+    powerupvelocidad.h \
+    powerupvida.h \
     proyectil.h \
     proyectilenemigo.h \
     puntaje.h \

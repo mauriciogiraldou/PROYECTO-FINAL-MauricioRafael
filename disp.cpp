@@ -53,14 +53,14 @@ void Disp::move() {
             delete this;
 
             // Incrementar puntaje si es un Barquitoenemigo
-            puntajeDisplay->incrementar(100);
+            puntajeDisplay->incrementar(200);
             return;
         } else if (typeid(*(colliding_items[i])) == typeid(Barcoenemigo)) {
             // Disminuir la vida del Barcoenemigo
             Barcoenemigo *enemy = dynamic_cast<Barcoenemigo *>(colliding_items[i]);
             if (enemy) {
                 enemy->recibirDisparo();
-                puntajeDisplay->incrementar(2);
+                puntajeDisplay->incrementar(10);
             }
 
             // Remover el proyectil

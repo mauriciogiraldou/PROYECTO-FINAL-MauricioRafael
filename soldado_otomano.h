@@ -14,11 +14,17 @@ Q_OBJECT
 public:
     soldado_otomano();
     void keyPressEvent(QKeyEvent *event) override;
+    void reducirVida();
+    int getdano();
+    void aumentarVida();
+    void aumentarVelocidad();
+    void aumentarDano();
 private slots:
     void enableShooting();
 private:
     int vidas;
     int velocidad;
+    int velocidaddano;
     qreal currentAngle;
     Puntaje* puntajeDisplay = nullptr;
     Vidas* vidasDisplay=nullptr;
