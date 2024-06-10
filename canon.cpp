@@ -10,12 +10,12 @@ Canon::Canon(QGraphicsItem *parent)
     setPixmap(pixmap);
     QTimer *shootTimer = new QTimer(this);
     connect(shootTimer, &QTimer::timeout, this, &Canon::shoot);
-    shootTimer->start(2900);
+    shootTimer->start(15000);
 }
 void Canon::shoot() {
     ProyectilEnemigoCanon *proyectil = new ProyectilEnemigoCanon();
     // Posicionar el proyectil en la posición actual del cañón
     proyectil->setPos(x()+25, y()+130 );
     scene()->addItem(proyectil);
-    qDebug()<<"Dipare chavalin pero no lo vites ";
+    //qDebug()<<"Dipare chavalin pero no lo vites ";
 }

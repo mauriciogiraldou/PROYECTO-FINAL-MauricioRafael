@@ -89,6 +89,8 @@ void MainWindow::onChangeScene(QGraphicsScene *newScene) {
     Muro *piedra=new Muro(150, 630,":/imagenes/piedra.png");
     Muro *arbol1=new Muro(1000, 70,":/imagenes/arbol_aereo_pino.png");
     Muro *arbol2=new Muro(200, 400,":/imagenes/arbol_aereo.png");
+    arbol1->setZValue(3);
+    arbol2->setZValue(3);
     newScene->addItem(piedra);
     newScene->addItem(piedra2);
     newScene->addItem(arbol1);
@@ -96,5 +98,8 @@ void MainWindow::onChangeScene(QGraphicsScene *newScene) {
     Muro *marco=new Muro(0,0,":/imagenes/marco4.png");
     marco->setZValue(3);
     newScene->addItem(marco);
-    controllerNivel2 = new GameControllerNivel2(newScene,solda,canon, this);
+    Puerta *puerta=new Puerta();
+    puerta->setPos(550,518);
+    newScene->addItem(puerta);
+    controllerNivel2 = new GameControllerNivel2(newScene,solda,canon,puerta, this);
 }

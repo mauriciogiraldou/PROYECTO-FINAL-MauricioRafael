@@ -4,11 +4,16 @@
 #include "polvora.h"
 
 
-GameControllerNivel2::GameControllerNivel2(QGraphicsScene *scene,soldado_otomano *jugador,Canon *canon, QObject *parent)
-    : QObject(parent), scene(scene),jugador(jugador),canon(canon) {
+GameControllerNivel2::GameControllerNivel2(QGraphicsScene *scene,soldado_otomano *jugador,Canon *canon,Puerta *puerta, QObject *parent)
+    : QObject(parent), scene(scene),jugador(jugador),canon(canon),puerta(puerta) {
     polvoraDisplay = new PolvoraDisplay();
     scene->addItem(polvoraDisplay);
-    polvoraDisplay->setPos(500, 10);
+    polvoraDisplay->setPos(10, 3);
+    puertaDisplay = new PuertaDisplay();
+    puertaDisplay->setZValue(4);
+    scene->addItem(puertaDisplay);
+    puertaDisplay->setPos(675, 650); // Ajusta la posición según sea necesario
+    connect(puerta, &Puerta::vidaCambiada, puertaDisplay, &PuertaDisplay::actualizarVida);
     spawnTimer = new QTimer(this);
     connect(spawnTimer, &QTimer::timeout, this, &GameControllerNivel2::spawnEnemigo);
     spawnTimer->start(5000); // Spawn enemigo cada 2 segundos
