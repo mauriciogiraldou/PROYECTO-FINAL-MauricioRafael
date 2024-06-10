@@ -34,6 +34,8 @@ SOURCES += \
     proyectil.cpp \
     proyectilenemigo.cpp \
     proyectilenemigocanon.cpp \
+    puerta.cpp \
+    puertadisplay.cpp \
     puntaje.cpp \
     registro.cpp \
     soldado_bizantino.cpp \
@@ -65,6 +67,8 @@ HEADERS += \
     proyectil.h \
     proyectilenemigo.h \
     proyectilenemigocanon.h \
+    puerta.h \
+    puertadisplay.h \
     puntaje.h \
     registro.h \
     soldado_bizantino.h \
