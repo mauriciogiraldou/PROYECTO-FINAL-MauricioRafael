@@ -3,6 +3,13 @@
 #include "gamecontroller.h"
 #include "registro.h"
 #include <QMessageBox>
+#include "puntaje.h"
+#include "vidas.h"
+#include "soldado_otomano.h"
+#include "muro.h"
+#include "muro_verdadero.h"
+#include "canon.h"
+#include "puerta.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,7 +22,6 @@ MainWindow::MainWindow(QWidget *parent)
         close();
         return;
     }
-
     iniciarJuego();
 }
 
@@ -27,35 +33,25 @@ void MainWindow::iniciarJuego() {
     scene = new Escena(this);
     ui->graphicsView->setScene(scene);
     scene->setSceneRect(0, 0, ui->graphicsView->width(), ui->graphicsView->height());
-    ui->graphicsView->setMouseTracking(true);
+    //ui->graphicsView->setMouseTracking(true);
     ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
     Barquito *barco = new Barquito;
     barco->setFlag(QGraphicsPixmapItem::ItemIsFocusable);
-
     barco->setFocus();
     barco->setPos(-10, 200);
     scene->addItem(barco);
-
-
-
     Puntaje *puntajeDisplay = new Puntaje();
     scene->addItem(puntajeDisplay);
     barco->setPuntaje(puntajeDisplay);
-
     Vidas *vidasDisplay = new Vidas(3);
     puntajeDisplay->setPos(640, 3);
     scene->addItem(vidasDisplay);
     barco->setVidas(vidasDisplay);
     vidasDisplay->setPos(10, 3);
-
     controller = new GameController(scene, puntajeDisplay);
     connect(controller, &GameController::changeScene, this, &MainWindow::onChangeScene);
     controller->start();
 }
-
-
-
 void MainWindow::onChangeScene(QGraphicsScene *newScene) {
     controller->clearScene();
     delete barco;

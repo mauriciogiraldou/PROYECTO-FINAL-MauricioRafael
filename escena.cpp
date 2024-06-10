@@ -12,10 +12,11 @@ Escena::Escena(QObject *parent):QGraphicsScene(parent){
     addItem(projecile);
 }
 */
+/*
 void Escena::mouseMoveEvent(QGraphicsSceneMouseEvent *event){
     QPointF point = event -> scenePos();
     qDebug() << "Mouse position:" << point;
     event->accept();
 }
-
+*/
 

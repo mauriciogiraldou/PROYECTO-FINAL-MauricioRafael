@@ -5,14 +5,12 @@
 #include "bola.h"
 #include "nivel2.h"
 #include <QDebug>
-
 GameController::GameController(QGraphicsScene *scene, Puntaje *puntaje, QObject *parent)
     : QObject(parent), scene(scene), puntaje(puntaje), gameOver(false), jefeFinalSpawned(false) {
     smallEnemyTimer = new QTimer(this);
     largeEnemyTimer = new QTimer(this);
     puntajeCheckTimer = new QTimer(this);
     bolaTimer = new QTimer(this);
-
     connect(smallEnemyTimer, &QTimer::timeout, this, &GameController::spawnSmallEnemy);
     connect(largeEnemyTimer, &QTimer::timeout, this, &GameController::spawnLargeEnemy);
     connect(puntajeCheckTimer, &QTimer::timeout, this, &GameController::checkPuntaje);
@@ -24,7 +22,6 @@ void GameController::start() {
     largeEnemyTimer->start(5000);
     puntajeCheckTimer->start(1000);
 }
-
 void GameController::spawnSmallEnemy() {
     if (puntaje->hasReached(95) && puntaje->getPuntaje() < 200) {
         smallEnemyTimer->stop();
@@ -35,7 +32,6 @@ void GameController::spawnSmallEnemy() {
     Barquitoenemigo *enemy = new Barquitoenemigo();
     scene->addItem(enemy);
 }
-
 void GameController::spawnLargeEnemy() {
     if (puntaje->hasReached(200) && puntaje->getPuntaje() < 400) {
         Barcoenemigo *largeEnemy = new Barcoenemigo();
@@ -52,7 +48,6 @@ void GameController::spawnLargeEnemy() {
 
 void GameController::checkPuntaje() {
     //qDebug() << "Verificando puntaje. Puntaje actual: " << puntaje->getPuntaje();
-
     if (puntaje->hasReached(200) && puntaje->getPuntaje() < 400) {
         if (!smallEnemyTimer->isActive()) {
             smallEnemyTimer->start(2000);

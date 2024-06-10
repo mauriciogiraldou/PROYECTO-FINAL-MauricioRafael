@@ -5,7 +5,6 @@
 #include <QGraphicsRectItem>
 #include <QObject>
 #include <QTimer>
-#include <cmath>
 #include <QBrush>
 #include <QGraphicsScene>
 #include <QList>
@@ -16,18 +15,17 @@ public:
     Disp(Puntaje *puntaje,QGraphicsItem *parent=nullptr);
 public slots:
     void move();
-
 private:
-    double velocidad;    // Velocidad inicial (magnitud)
-    double angulo;       // Ángulo de lanzamiento (en grados)
-    double radianes;     // Ángulo en radianes
-    double vx0;          // Componente horizontal de la velocidad inicial
-    double vy0;          // Componente vertical de la velocidad inicial
-    double g;            // Aceleración debida a la gravedad
-    double t;            // Intervalo de tiempo
-    double tiempoTotal;  // Tiempo total transcurrido
+    double velocidad;
+    double angulo;
+    double radianes;
+    double vx0;
+    double vy0;
+    double g;
+    double t;
+    double tiempoTotal;
     QTimer *timer;
-    Puntaje *puntajeDisplay;        // Temporizador para el movimiento
+    Puntaje *puntajeDisplay;
 };
 
 #endif // DISP_H

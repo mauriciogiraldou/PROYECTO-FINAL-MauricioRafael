@@ -1,8 +1,6 @@
 #ifndef POWERUPVELOCIDAD_H
 #define POWERUPVELOCIDAD_H
-
 #include "powerup.h"
-
 class PowerUpVelocidad : public PowerUp {
     Q_OBJECT
 public:

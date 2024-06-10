@@ -2,51 +2,29 @@
 #include <QGraphicsScene>
 #include <QPixmap>
 #include <QtMath>
-#include <QDebug>
 #include "soldado_bizantino.h"
-#include "soldado_otomano.h"
-
 Proyectil::Proyectil(qreal angle, QGraphicsItem *parent)
     : QObject(), QGraphicsPixmapItem(parent), angle(angle), initialSpeed(15), deceleration(2.5) {
     QPixmap pixmap(":/imagenes/arrowcita.png");
     setPixmap(pixmap);
     setScale(0.35);
     setRotation(angle);
-
-    // Configurar la velocidad inicial
     currentSpeed = initialSpeed;
-
-    // Iniciar el temporizador
     timer.start();
-
-    // Temporizador para mover el proyectil
     moveTimer = new QTimer(this);
     connect(moveTimer, &QTimer::timeout, this, &Proyectil::move);
-    moveTimer->start(50); // Actualiza la posición del proyectil cada 50 ms
+    moveTimer->start(50);
 }
-
 void Proyectil::move() {
-    // Calcular el tiempo transcurrido en segundos
     qreal elapsedTime = timer.elapsed() / 1000.0;
-
-    // Calcular la velocidad actual
     currentSpeed = initialSpeed - deceleration * elapsedTime;
     if (currentSpeed < 0) {
         currentSpeed = 0;
     }
-
-    // Convertir el ángulo a radianes
     qreal angleRad = qDegreesToRadians(angle);
-
-    // Calcular el desplazamiento en x e y
     qreal dx = currentSpeed * qCos(angleRad);
     qreal dy = currentSpeed * qSin(angleRad);
-
-    // Mover el proyectil
     setPos(x() + dx, y() + dy);
-
-    // Eliminar el proyectil si la velocidad llega a cero o si sale de la escena
-
     QList<QGraphicsItem *> collidingItems = scene()->collidingItems(this);
     foreach (QGraphicsItem *item, collidingItems) {
         soldado_bizantino *enemigo = dynamic_cast<soldado_bizantino *>(item);

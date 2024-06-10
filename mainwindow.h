@@ -10,21 +10,9 @@
 #include "barquito.h"
 #include "barquitoenemigo.h"
 #include <QTimer>
-#include "puntaje.h"
-#include "vidas.h"
 #include "gamecontroller.h"
-#include "proyectilenemigo.h"
-#include "barcoenemigo.h"
 #include "jefefinal.h"
-#include "nivel2.h"
-#include "soldado_otomano.h"
-#include "muro.h"
-#include "muro_verdadero.h"
-#include "proyectil.h"
-#include "soldado_bizantino.h"
 #include "gamecontrollernivel2.h"
-#include "canon.h"
-#include "puerta.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;

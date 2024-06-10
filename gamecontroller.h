@@ -1,11 +1,9 @@
 #ifndef GAMECONTROLLER_H
 #define GAMECONTROLLER_H
-
 #include <QObject>
 #include <QGraphicsScene>
 #include <QTimer>
 #include "puntaje.h"
-
 class GameController : public QObject {
     Q_OBJECT
 public:
@@ -19,16 +17,15 @@ private slots:
     void spawnSmallEnemy();
     void spawnLargeEnemy();
     void checkPuntaje();
-    void spawnBola(); // Añadir esta función para manejar la caída de bolas
+    void spawnBola();
     void onJefeFinalDerrotado();
 private:
-
     QGraphicsScene *scene;
     Puntaje *puntaje;
     QTimer *smallEnemyTimer;
     QTimer *largeEnemyTimer;
     QTimer *puntajeCheckTimer;
-    QTimer *bolaTimer; // Añadir un temporizador para las bolas
+    QTimer *bolaTimer;
     bool jefeFinalSpawned;
     bool gameOver;
 };

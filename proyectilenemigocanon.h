@@ -1,10 +1,7 @@
 #ifndef PROYECTILENEMIGOCANON_H
 #define PROYECTILENEMIGOCANON_H
-
-#include "proyectilenemigo.h"
 #include <QObject>
 #include <QGraphicsPixmapItem>
-
 class ProyectilEnemigoCanon : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT

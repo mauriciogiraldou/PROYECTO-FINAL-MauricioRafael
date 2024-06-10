@@ -3,7 +3,6 @@
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QTimer>
-
 class Canon : public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 public:

@@ -1,10 +1,8 @@
 #ifndef SOLDADO_BIZANTINO_H
 #define SOLDADO_BIZANTINO_H
-
 #include <QObject>
 #include <QTimer>
 #include <QGraphicsPixmapItem>
-
 class soldado_bizantino : public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
