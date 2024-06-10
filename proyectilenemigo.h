@@ -11,7 +11,5 @@ public:
     ProyectilEnemigo(QGraphicsItem *parent=nullptr);
 public slots:
     void move();
-
 };
-
 #endif // PROYECTILENEMIGO_H

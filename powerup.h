@@ -3,12 +3,11 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QTimer>
-
 class PowerUp : public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 public:
     PowerUp(QGraphicsItem *parent = nullptr);
-    virtual void applyEffect() = 0; // Método puro virtual para aplicar el efecto
+    virtual void applyEffect() = 0;
 private slots:
     void checkCollision();
 private:

@@ -3,7 +3,6 @@
 #include "ui_registro.h"
 #include <QDialog>
 #include <QMap>
-
 namespace Ui {
 class registro;
 }
@@ -15,14 +14,11 @@ class Registro : public QDialog
 public:
     explicit Registro(QWidget *parent = nullptr);
     ~Registro();
-
 signals:
     void usuarioAutenticado();
-
 private slots:
     void on_registrarButton_clicked();
     void on_iniciarSesionButton_clicked();
-
 private:
     Ui::registro *ui;
     QMap<QString, QString> usuarios; // Mapa para almacenar las credenciales de los usuarios

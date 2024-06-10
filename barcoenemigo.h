@@ -5,7 +5,6 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QObject>
-
 class Barcoenemigo:public QObject,public QGraphicsPixmapItem
 {
 public:
@@ -17,7 +16,6 @@ public slots:
 private:
     int vida;
     QTimer *collisionTimer;
-
 };
 
 #endif // BARCOENEMIGO_H

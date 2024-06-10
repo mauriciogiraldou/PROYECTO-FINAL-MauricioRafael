@@ -1,7 +1,6 @@
 #ifndef MURO_VERDADERO_H
 #define MURO_VERDADERO_H
 #include <QGraphicsEllipseItem>
-
 class Muro_verdadero: public QGraphicsEllipseItem
 {
 public:

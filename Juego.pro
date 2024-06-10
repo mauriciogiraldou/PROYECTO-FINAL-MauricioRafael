@@ -40,6 +40,7 @@ SOURCES += \
     registro.cpp \
     soldado_bizantino.cpp \
     soldado_otomano.cpp \
+    vidadisplay.cpp \
     vidas.cpp
 
 HEADERS += \
@@ -73,6 +74,7 @@ HEADERS += \
     registro.h \
     soldado_bizantino.h \
     soldado_otomano.h \
+    vidadisplay.h \
     vidas.h
 
 FORMS += \

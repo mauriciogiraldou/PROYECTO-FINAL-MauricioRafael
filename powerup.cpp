@@ -2,13 +2,11 @@
 #include "soldado_otomano.h"
 #include <QGraphicsScene>
 #include <QList>
-
 PowerUp::PowerUp(QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem(parent) {
     collisionTimer = new QTimer(this);
     connect(collisionTimer, &QTimer::timeout, this, &PowerUp::checkCollision);
-    collisionTimer->start(50); // Verifica colisión cada 50 ms
+    collisionTimer->start(50);
 }
-
 void PowerUp::checkCollision() {
     QList<QGraphicsItem *> collidingItems = scene()->collidingItems(this);
     foreach (QGraphicsItem *item, collidingItems) {

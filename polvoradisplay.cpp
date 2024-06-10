@@ -1,11 +1,10 @@
 #include "polvoradisplay.h"
 #include <QFont>
-
 PolvoraDisplay::PolvoraDisplay(QGraphicsItem *parent)
     : QGraphicsTextItem(parent), polvora(0) {
     setPlainText(QString("Polvora: ") + QString::number(polvora));
-    setDefaultTextColor(Qt::white);
-    setFont(QFont("times", 26));
+    setDefaultTextColor(Qt::yellow);
+    setFont(QFont("Blackadder ITC", 30));
 }
 
 void PolvoraDisplay::aumentarPolvora(int cantidad) {

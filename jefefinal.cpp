@@ -2,26 +2,22 @@
 #include "jefeproyectil.h"
 #include <QTimer>
 #include <QGraphicsScene>
-#include <QDebug>
 #include "barquito.h"
-
 JefeFinal::JefeFinal(QGraphicsItem *parent)
-    : QGraphicsPixmapItem(parent), direccion(1), vida(5) {
+    : QGraphicsPixmapItem(parent), direccion(1), vida(150) {
     QPixmap pixmap(":/imagenes/Barco jefe.png");
     setPixmap(pixmap);
     setScale(0.68);
     setPos(798, 40);
-
     QTimer *moveTimer = new QTimer(this);
     connect(moveTimer, &QTimer::timeout, this, &JefeFinal::move);
     moveTimer->start(50);
-
     QTimer *shootTimer = new QTimer(this);
     connect(shootTimer, &QTimer::timeout, this, &JefeFinal::shoot);
     shootTimer->start(3000);
     collisionTimer = new QTimer(this);
     connect(collisionTimer, &QTimer::timeout, this, &JefeFinal::checkCollisions);
-    collisionTimer->start(100);  // Comprobar colisiones cada 100 ms
+    collisionTimer->start(100);
 }
 
 void JefeFinal::move() {
@@ -43,33 +39,25 @@ void JefeFinal::shoot() {
     JefeProyectil *bullet = new JefeProyectil();
     bullet->setPos(x() + 15, y() + 240);
     scene()->addItem(bullet);
-    //qDebug() << "Jefe disparando";
 }
-
 void JefeFinal::checkCollisions() {
     QList<QGraphicsItem *> collidingItems = scene()->collidingItems(this);
     for (QGraphicsItem *item : collidingItems) {
         Barquito *barquito = dynamic_cast<Barquito *>(item);
         if (barquito) {
             barquito->reducirVidas();
-            // No eliminar al jefe final tras la colisión
             return;
         }
     }
 }
 void JefeFinal::recibirDisparo() {
     vida -= 1;
-    //qDebug() << "Jefe recibiendo disparo";
     if (vida <= 0) {
         scene()->removeItem(this);
         emit jefeDerrotado();
         delete this;
-
-
-        //qDebug() << "Jefe final destruido";
     }
 }
-
 int JefeFinal::getVida() const {
     return vida;
 }

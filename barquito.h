@@ -2,7 +2,6 @@
 #define BARQUITO_H
 #include <QKeyEvent>
 #include <QDebug>
-#include "disp.h"
 #include <QGraphicsScene>
 #include <QObject>
 #include "puntaje.h"
@@ -17,6 +16,7 @@ public:
     void incrementarPuntaje(int puntos);
     void setPuntaje(Puntaje* p) { puntajeDisplay = p; }
     void setVidas(Vidas* v) { vidasDisplay = v; }
+    void reducirVelocidad();
 private:
     int velocidad=10;
     int vidas;

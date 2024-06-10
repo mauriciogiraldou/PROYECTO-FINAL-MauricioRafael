@@ -7,9 +7,7 @@
 #include "powerupvida.h"
 #include "powerupvelocidad.h"
 #include "powerupdano.h"
-#include "polvora.h"
 #include <stdlib.h>
-
 soldado_bizantino::soldado_bizantino(QGraphicsItem *parent)
     : QGraphicsPixmapItem(parent), velocidad(4),vida(4),player(nullptr) {
     setPixmap(QPixmap(":/imagenes/soldado_bizantino_abajo.png"));
@@ -17,13 +15,12 @@ soldado_bizantino::soldado_bizantino(QGraphicsItem *parent)
 
     movementTimer = new QTimer(this);
     connect(movementTimer, &QTimer::timeout, this, &soldado_bizantino::followPlayer);
-    movementTimer->start(50); // Update every 50ms
+    movementTimer->start(50);
     srand(static_cast<unsigned>(time(nullptr)));
 }
 
 void soldado_bizantino::followPlayer() {
     if (!player) {
-        // Try to find the player in the scene
         QList<QGraphicsItem *> items = scene()->items();
         foreach (QGraphicsItem *item, items) {
             soldado_otomano *potentialPlayer = dynamic_cast<soldado_otomano *>(item);
@@ -35,24 +32,18 @@ void soldado_bizantino::followPlayer() {
     }
 
     if (!player) {
-        return; // No player found, cannot follow
+        return;
     }
 
-    // Calculate the direction towards the player
     qreal deltaX = player->x() - x();
     qreal deltaY = player->y() - y();
     qreal distance = sqrt(deltaX * deltaX + deltaY * deltaY);
-
     if (distance < 1) {
-        return; // Already close enough to the player
+        return;
     }
-
-    // Move towards the player
     qreal moveX = velocidad * deltaX / distance;
     qreal moveY = velocidad * deltaY / distance;
     setPos(x() + moveX, y() + moveY);
-
-    // Update the image based on the direction
     updateImage();
     QList<QGraphicsItem *> collidingItems = scene()->collidingItems(this);
     foreach(QGraphicsItem *item, collidingItems) {
@@ -86,7 +77,6 @@ void soldado_bizantino::updateImage() {
 }
 void soldado_bizantino::reducirVida(int cantidad) {
     vida -= cantidad;
-    qDebug() << "Vida del soldado bizantino: " << vida;
     if (vida <= 0) {
         dropPowerUp();
         emit soldadoMuerto(this);
@@ -96,9 +86,9 @@ void soldado_bizantino::reducirVida(int cantidad) {
 }
 void soldado_bizantino::dropPowerUp() {
     int random = rand() % 100;
-    if (random < 20) { // 20% de probabilidad de generar un power-up
+    if (random < 40) {
         PowerUp *powerup;
-        int tipo = rand() %3 ; // 0, 1, o 2
+        int tipo = rand() %3 ;
         if (tipo == 0) {
             powerup = new PowerUpVida();
         } else if (tipo == 1) {

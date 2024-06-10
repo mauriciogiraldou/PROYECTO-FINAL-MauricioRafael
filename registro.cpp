@@ -5,7 +5,6 @@
 #include <QMessageBox>
 #include <QDir>
 #include <QDebug>
-
 Registro::Registro(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::registro)
@@ -19,7 +18,6 @@ Registro::~Registro()
     guardarUsuarios();
     delete ui;
 }
-
 void Registro::registrarUsuario(const QString &nombreUsuario, const QString &contrasena) {
     if (usuarios.contains(nombreUsuario)) {
         QMessageBox::warning(this, "Registro fallido", "El nombre de usuario ya existe.");
