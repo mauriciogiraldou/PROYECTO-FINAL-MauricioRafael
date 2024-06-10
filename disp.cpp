@@ -31,7 +31,7 @@ void Disp::move() {
             scene()->removeItem(this);
             delete colliding_items[i];
             delete this;
-            puntajeDisplay->incrementar(5);
+            puntajeDisplay->incrementar(10);
             return;
         } else if (typeid(*(colliding_items[i])) == typeid(Barcoenemigo)) {
             Barcoenemigo *enemy = dynamic_cast<Barcoenemigo *>(colliding_items[i]);
