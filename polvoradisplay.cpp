@@ -4,7 +4,7 @@
 PolvoraDisplay::PolvoraDisplay(QGraphicsItem *parent)
     : QGraphicsTextItem(parent), polvora(0) {
     setPlainText(QString("Pólvora: ") + QString::number(polvora));
-    setDefaultTextColor(Qt::black);
+    setDefaultTextColor(Qt::white);
     setFont(QFont("times", 16));
 }
 

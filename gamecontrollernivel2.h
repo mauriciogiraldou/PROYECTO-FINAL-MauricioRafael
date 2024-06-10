@@ -19,14 +19,12 @@ private slots:
     void spawnEnemigo();
 public slots:
     void recolectarPolvora();
-    void verificarPolvora();
 private:
     QGraphicsScene *scene;
     QTimer *spawnTimer;
     PolvoraDisplay *polvoraDisplay;
     soldado_otomano *jugador;
     Canon *canon;
-    int contadorPolvora;
 };
 
 #endif // GAMECONTROLLERNIVEL2_H

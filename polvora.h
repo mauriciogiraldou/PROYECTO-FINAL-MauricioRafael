@@ -15,9 +15,6 @@ public:
 
 signals:
     void polvoraRecolectada();
-
-public slots:
-    void advance(int step) override;
 };
 
 #endif // POLVORA_H
