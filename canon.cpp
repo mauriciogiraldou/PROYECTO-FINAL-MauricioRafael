@@ -1,34 +1,21 @@
 #include "canon.h"
 #include <QPixmap>
 #include <QGraphicsScene>
-#include "proyectilc.h"
+#include "proyectilenemigocanon.h"
+#include <QDebug>
 
-Canon::Canon(int initialHealth, QGraphicsItem *parent)
-    : QObject(), QGraphicsPixmapItem(parent), vida(initialHealth) {
+Canon::Canon(QGraphicsItem *parent)
+    : QObject(), QGraphicsPixmapItem(parent) {
     QPixmap pixmap(":/imagenes/orban_canon.png");  // Asegúrate de tener esta imagen
     setPixmap(pixmap);
+    QTimer *shootTimer = new QTimer(this);
+    connect(shootTimer, &QTimer::timeout, this, &Canon::shoot);
+    shootTimer->start(2900);
 }
-
-void Canon::recibirDano(int cantidad) {
-    vida -= cantidad;
-    if (vida <= 0) {
-        // Lógica para cuando el cañón sea destruido
-        scene()->removeItem(this);
-        delete this;
-    }
-}
-
-int Canon::getVida() const {
-    return vida;
-}
-void Canon::disparar() {
-    ProyectilC *proyectil = new ProyectilC(270); // 270 grados para disparar hacia abajo
-    proyectil->setPos(x(), y());
+void Canon::shoot() {
+    ProyectilEnemigoCanon *proyectil = new ProyectilEnemigoCanon();
+    // Posicionar el proyectil en la posición actual del cañón
+    proyectil->setPos(x()+25, y()+130 );
     scene()->addItem(proyectil);
-
-    QTimer *timer = new QTimer(proyectil);
-    connect(timer, &QTimer::timeout, proyectil, &ProyectilC::move);
-    timer->start(50); // Ajusta el intervalo según sea necesario
-
-    emit proyectilDisparado();
+    qDebug()<<"Dipare chavalin pero no lo vites ";
 }

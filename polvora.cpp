@@ -5,6 +5,7 @@
 Polvora::Polvora(QGraphicsItem *parent) : PowerUp(parent) {
     QPixmap pixmap(":/imagenes/polvora.png"); // Asegúrate de tener esta imagen
     setPixmap(pixmap);
+    setScale(0.5);
 }
 
 void Polvora::applyEffect() {
@@ -23,10 +24,4 @@ void Polvora::checkCollision() {
             break;
         }
     }
-}
-
-void Polvora::advance(int step) {
-    if (!step)
-        return;
-    checkCollision();
 }

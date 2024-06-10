@@ -32,8 +32,8 @@ SOURCES += \
     powerupvelocidad.cpp \
     powerupvida.cpp \
     proyectil.cpp \
-    proyectilc.cpp \
     proyectilenemigo.cpp \
+    proyectilenemigocanon.cpp \
     puntaje.cpp \
     registro.cpp \
     soldado_bizantino.cpp \
@@ -63,8 +63,8 @@ HEADERS += \
     powerupvelocidad.h \
     powerupvida.h \
     proyectil.h \
-    proyectilc.h \
     proyectilenemigo.h \
+    proyectilenemigocanon.h \
     puntaje.h \
     registro.h \
     soldado_bizantino.h \

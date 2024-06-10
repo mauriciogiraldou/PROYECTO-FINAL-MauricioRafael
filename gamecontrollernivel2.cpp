@@ -5,7 +5,7 @@
 
 
 GameControllerNivel2::GameControllerNivel2(QGraphicsScene *scene,soldado_otomano *jugador,Canon *canon, QObject *parent)
-    : QObject(parent), scene(scene),jugador(jugador),canon(canon),contadorPolvora(0) {
+    : QObject(parent), scene(scene),jugador(jugador),canon(canon) {
     polvoraDisplay = new PolvoraDisplay();
     scene->addItem(polvoraDisplay);
     polvoraDisplay->setPos(500, 10);
@@ -17,7 +17,7 @@ GameControllerNivel2::GameControllerNivel2(QGraphicsScene *scene,soldado_otomano
             connect(soldado, &soldado_bizantino::soldadoMuerto, this, &GameControllerNivel2::recolectarPolvora);
         }
     }
-    connect(polvoraDisplay, &PolvoraDisplay::polvoraChanged, this, &GameControllerNivel2::verificarPolvora);
+
 }
 
 GameControllerNivel2::~GameControllerNivel2() {
@@ -43,9 +43,4 @@ void GameControllerNivel2::recolectarPolvora() {
         polvora->setZValue(1);
     }
 }
-void GameControllerNivel2::verificarPolvora() {
-    if (contadorPolvora >= 5) {
-        canon->disparar();
-        contadorPolvora = 0; // Reiniciar el contador después de disparar
-    }
-}
+
