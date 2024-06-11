@@ -1,0 +1,15 @@
+release/canonazo.o
+release/detonador.o
+release/enemigo_bizantino.o
+release/escena.o
+release/main.o
+release/muro.o
+release/muro_verdadero.o
+release/polvora.o
+release/soldado_otomano.o
+release/widget.o
+release/qrc_imagenes.o
+release/moc_detonador.o
+release/moc_enemigo_bizantino.o
+release/moc_escena.o
+release/moc_widget.o

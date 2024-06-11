@@ -1,0 +1,15 @@
+debug/canonazo.o
+debug/detonador.o
+debug/enemigo_bizantino.o
+debug/escena.o
+debug/main.o
+debug/muro.o
+debug/muro_verdadero.o
+debug/polvora.o
+debug/soldado_otomano.o
+debug/widget.o
+debug/qrc_imagenes.o
+debug/moc_detonador.o
+debug/moc_enemigo_bizantino.o
+debug/moc_escena.o
+debug/moc_widget.o
