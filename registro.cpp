@@ -11,6 +11,7 @@ Registro::Registro(QWidget *parent) :
 {
     ui->setupUi(this);
     cargarUsuarios();
+    cargarInstrucciones();
 }
 
 Registro::~Registro()
@@ -91,4 +92,20 @@ void Registro::guardarUsuarios() {
     }
 
     file.close();
+}
+void Registro::cargarInstrucciones()
+{
+    // Ejemplo de texto de instrucciones del juego
+    QString instrucciones =
+        "Instrucciones del Juego:\n\n"
+        "Mover personaje:\n"
+        " - W: Mover hacia arriba\n"
+        " - S: Mover hacia abajo\n"
+        " - A: Mover hacia la izquierda\n"
+        " - D: Mover hacia la derecha\n"
+        " - Espacio: Disparar Proyectil\n"
+        ;
+
+    // Establecer el texto en el QTextEdit o QLabel de la pestaña Instrucciones
+    ui->instruccionesTextEdit->setPlainText(instrucciones);
 }

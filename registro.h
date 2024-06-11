@@ -3,6 +3,7 @@
 #include "ui_registro.h"
 #include <QDialog>
 #include <QMap>
+#include <QTabWidget>
 namespace Ui {
 class registro;
 }
@@ -28,6 +29,7 @@ private:
 
     void cargarUsuarios();
     void guardarUsuarios();
+    void cargarInstrucciones();
 };
 
 #endif // REGISTRO_H
