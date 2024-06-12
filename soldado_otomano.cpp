@@ -68,6 +68,7 @@ int soldado_otomano::getdano()
 }
 void soldado_otomano::aumentarVida() {
     vidas++;
+    emit vidaCambiada(vidas);
 }
 
 void soldado_otomano::aumentarVelocidad() {
@@ -76,5 +77,5 @@ void soldado_otomano::aumentarVelocidad() {
 
 void soldado_otomano::aumentarDano()
 {
-    velocidaddano-=25;
+    velocidaddano-=35;
 }

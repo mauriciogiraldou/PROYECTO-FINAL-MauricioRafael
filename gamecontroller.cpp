@@ -73,10 +73,8 @@ void GameController::checkPuntaje() {
 void GameController::spawnBola() {
     Bola *bola = new Bola();
     Bola *bola2 = new Bola();
-    Bola *bola3 = new Bola();
     scene->addItem(bola);
     scene->addItem(bola2);
-    scene->addItem(bola3);
 }
 void GameController::clearScene() {
     smallEnemyTimer->stop();

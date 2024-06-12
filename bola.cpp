@@ -6,12 +6,12 @@ Bola::Bola(QGraphicsItem *parent)
     : QGraphicsPixmapItem(parent), tiempo(0), velocidadY(0), gravedad(9.8) {
     QPixmap pixmap(":/imagenes/bodoque2.png");
     setPixmap(pixmap);
-    setScale(0.50);
+    setScale(0.40);
     int random_number=rand()%1000;
     setPos(random_number, -80);
     moveTimer = new QTimer(this);
     connect(moveTimer, &QTimer::timeout, this, &Bola::move);
-    moveTimer->start(50);
+    moveTimer->start(80);
 }
 void Bola::move() {
     tiempo += 0.038;

@@ -14,7 +14,7 @@ JefeFinal::JefeFinal(QGraphicsItem *parent)
     moveTimer->start(50);
     QTimer *shootTimer = new QTimer(this);
     connect(shootTimer, &QTimer::timeout, this, &JefeFinal::shoot);
-    shootTimer->start(3000);
+    shootTimer->start(4500);
     collisionTimer = new QTimer(this);
     connect(collisionTimer, &QTimer::timeout, this, &JefeFinal::checkCollisions);
     collisionTimer->start(100);
