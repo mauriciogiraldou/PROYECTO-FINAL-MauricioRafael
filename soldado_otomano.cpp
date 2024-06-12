@@ -8,7 +8,7 @@ soldado_otomano::soldado_otomano(): vidas(3),velocidad(10),velocidaddano(510),cu
     QPixmap personaje_principal(":/imagenes/caballo_o_abajo.png");
     setPixmap(personaje_principal);
     setScale(0.78);
-     connect(&shootTimer, &QTimer::timeout, this, &soldado_otomano::enableShooting);
+    connect(&shootTimer, &QTimer::timeout, this, &soldado_otomano::enableShooting);
 }
 void soldado_otomano::keyPressEvent(QKeyEvent *event) {
     qreal x_anterior = x();
