@@ -86,7 +86,7 @@ void soldado_bizantino::reducirVida(int cantidad) {
 }
 void soldado_bizantino::dropPowerUp() {
     int random = rand() % 100;
-    if (random < 40) {
+    if (random < 60) {
         PowerUp *powerup;
         int tipo = rand() %3 ;
         if (tipo == 0) {

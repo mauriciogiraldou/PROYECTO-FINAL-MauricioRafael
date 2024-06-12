@@ -18,7 +18,7 @@ public:
     void setVidas(Vidas* v) { vidasDisplay = v; }
     void reducirVelocidad();
 private:
-    int velocidad=10;
+    int velocidad=12;
     int vidas;
     Puntaje* puntajeDisplay = nullptr;
     Vidas* vidasDisplay=nullptr;

@@ -37,7 +37,7 @@ void Disp::move() {
             Barcoenemigo *enemy = dynamic_cast<Barcoenemigo *>(colliding_items[i]);
             if (enemy) {
                 enemy->recibirDisparo();
-                puntajeDisplay->incrementar(2);
+                puntajeDisplay->incrementar(3);
             }
             scene()->removeItem(this);
             delete this;
